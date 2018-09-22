@@ -7,7 +7,7 @@
 <title>Ah Ha Restaurant</title>
 </head>
 <body>
-<h1>Ah Ha Restaurant</h1>
-<%@include file='templates/header.html'%>
+	<h1>Ah Ha Restaurant</h1>
+	<%@include file='templates/header.html'%>
 </body>
 </html>

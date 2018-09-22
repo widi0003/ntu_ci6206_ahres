@@ -34,7 +34,7 @@ public class User extends Connector {
 		}
 		return status;
 	}
-	
+
 	public String getName(String email) {
 		String name = "";
 		try {
