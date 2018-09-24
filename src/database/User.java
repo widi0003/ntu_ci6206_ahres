@@ -13,7 +13,7 @@ public class User extends Connector {
 	public boolean authenticate(String email, String password) {
 		boolean status = false;
 		try {
-			String selectStatement = "select * from users where email = ? and password = ?";
+			String selectStatement = "select * from users where email_address = ? and password = ?";
 			getConnection();
 
 			PreparedStatement prepStmt = con.prepareStatement(selectStatement);
@@ -42,7 +42,7 @@ public class User extends Connector {
 	public String getName(String email) {
 		String name = "";
 		try {
-			String selectStatement = "select name from users where email = ?";
+			String selectStatement = "select name from users where email_address = ?";
 			getConnection();
 
 			PreparedStatement prepStmt = con.prepareStatement(selectStatement);
@@ -70,7 +70,7 @@ public class User extends Connector {
 		boolean result = true;
 		
 		try {
-			String selectStatement = "select * from users where email = ?";
+			String selectStatement = "select * from users where email_address = ?";
 			getConnection();
 			
 			PreparedStatement prepStmt = con.prepareStatement(selectStatement);
@@ -96,7 +96,7 @@ public class User extends Connector {
 	public void addNewUser(String name, String email, String password) {
 		
 		try {
-			String sqlStatement = "INSERT INTO users (type, name, email, password) VALUES ('active', ?, ?, ?)";
+			String sqlStatement = "INSERT INTO users (type, name, email_address, password) VALUES ('active', ?, ?, ?)";
 			getConnection();
 		
 			PreparedStatement prepStmt = con.prepareStatement(sqlStatement);
