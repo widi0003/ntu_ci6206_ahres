@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,3 +14,10 @@
 	<%@include file='templates/footer.html'%>
 </body>
 </html>
+=======
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+
+<t:wrapper>
+	<%@include file='templates/header.html'%>
+</t:wrapper>
+>>>>>>> Add wrapper.tag and external stylesheets; Update index.jsp and header.html
