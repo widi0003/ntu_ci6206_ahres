@@ -8,6 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Profile</title>
+<link rel='stylesheet' href="global.css" type='text/css' />
 </head>
 <body>
 	<% 
@@ -31,6 +32,7 @@
 	return;
 }
  %>
-
+<%@include file='templates/footer.html'%>
+	
 </body>
 </html>

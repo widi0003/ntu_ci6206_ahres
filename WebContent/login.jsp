@@ -5,21 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Login</title>
+<link rel='stylesheet' href="global.css" type='text/css' />
 </head>
-<style>
-	form {
-		width: 500px;
-		margin: auto;
-		line-height: 30px
-	}
-	label {
-		display: inline-block;
-		width:100px;	
-	}
-	input.inputbox {
-		width:390px;
-	}
-</style>
 <body>
 	<%
 		String email = (String) session.getAttribute("email");
@@ -31,12 +18,14 @@
 		} else {
 	%>
 	<%@include file='templates/header.html'%>
+	<h2 id="topheader">Login</h2>
 	<form action="LoginServlet" method="GET">
 		<label>Email : </label> <input class="inputbox" type="email" name="email" size="100" required><br>
 		<label>Password : </label> <input class="inputbox" type="password" name="password" size="100" required> <br>
 		<input type="submit" value="Submit">
 	</form>
-
+	<%@include file='templates/footer.html'%>
+	
 	<%
 		}
 	%>
