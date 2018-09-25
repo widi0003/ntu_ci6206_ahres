@@ -22,8 +22,7 @@
 		} else {
 	%>
 	
-	<%@include file='templates/header.html'%>
-	<h2 id="topheader">Please fill in this form to create an account.</h2>
+	<%@include file='templates/navbar.html'%>
 	<form action="RegisterServlet" method="POST">
 
 		<label>Name : </label> <input class="inputbox" type="text" name="name" size="100" required> <br>

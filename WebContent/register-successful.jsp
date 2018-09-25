@@ -8,7 +8,7 @@
 <link rel='stylesheet' href="global.css" type='text/css' />
 </head>
 <body>
-	<%@include file='templates/header.html'%>
+	<%@include file='templates/navbar.html'%>
 	Thank you for registering! <br>
 	Now you can <a href="login.jsp">login</a> and make your reservation
 	<%@include file='templates/footer.html'%>
