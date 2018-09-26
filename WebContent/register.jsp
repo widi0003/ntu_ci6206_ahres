@@ -19,7 +19,7 @@
 	
 	<%@include file='templates/navbar.html'%>
 	<h2 class="mt-5 formtitle">Please fill in this form to create an account.</h2>
-	<form class=" m-auto register" action="RegisterServlet" method="POST">
+	<form class=" m-auto" action="RegisterServlet" method="POST">
 
 		<div class="form-group">
     		 	<label for="InputName">Name</label>

@@ -1,3 +1,15 @@
+h1 {
+    text-align: center;
+}
+
+h2.formtitle {
+    text-align: center;
+}
+
+form {
+    width: 500px;
+}
+
 .footer {
     width: 490px;
     margin: 0 auto;

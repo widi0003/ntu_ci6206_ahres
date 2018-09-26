@@ -21,7 +21,7 @@
 	<%@include file='templates/navbar.html'%>
 	<div class="container">
 		<h2 class="mt-5 formtitle">Login</h2>
-		<form action="LoginServlet" method="GET" class="m-auto login">
+		<form action="LoginServlet" method="GET" class="m-auto">
 			<div class="form-group">
     		 	<label for="InputEmail1">Email address</label>
 				<input type="email" name="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter email" size="100" required>
