@@ -1,6 +1,6 @@
-h2 {
+h2.formtitle{
 	text-align: center;
 }
-form {
+form.login{
 	width: 500px;
 }

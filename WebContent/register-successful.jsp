@@ -3,9 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-<link rel='stylesheet' href="global.css" type='text/css' />
+	<%@include file='templates/head.html'%>
 </head>
 <body>
 	<%@include file='templates/navbar.html'%>

@@ -15,6 +15,6 @@
 		</div>
 	</div>
 	
-	<%@include file='templates/bootstrapjs.html'%>
+	<%@include file='templates/footer.html'%>
 </body>
 </html>
