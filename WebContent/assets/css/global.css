@@ -1,0 +1,32 @@
+h1 {
+    text-align: center;
+}
+
+h2.formtitle {
+    text-align: center;
+}
+
+form {
+    width: 500px;
+}
+
+.footer {
+    width: 490px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 10px;
+    padding-bottom: 20px;
+}
+
+.footer span {
+    color: #2b2a29;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.footer em {
+    color: #b5b5b5;
+    font-size: 14px;
+    line-height: 18px;
+    font-style: normal;
+}

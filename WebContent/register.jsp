@@ -3,14 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Register</title>
-
-<link rel='stylesheet' href="global.css" type='text/css' />
+	<title>Register</title>
+	<%@include file='templates/head.html'%>
 </head>
-<style>
-
-</style>
 <body>
 	<%
 		String email = (String) session.getAttribute("email");
@@ -22,14 +17,23 @@
 		} else {
 	%>
 	
-	<%@include file='templates/header.html'%>
-	<h2 id="topheader">Please fill in this form to create an account.</h2>
-	<form action="RegisterServlet" method="POST">
+	<%@include file='templates/navbar.html'%>
+	<h2 class="mt-5 formtitle">Please fill in this form to create an account.</h2>
+	<form class=" m-auto" action="RegisterServlet" method="POST">
 
-		<label>Name : </label> <input class="inputbox" type="text" name="name" size="100" required> <br>
-		<label>Email : </label> <input class="inputbox" type="email" name="email" size="100" required> <br>
-		<label>Password : </label> <input class="inputbox" type="password" name="password" size="100" required> <br>
-		<input type="submit" value="Submit">
+		<div class="form-group">
+    		 	<label for="InputName">Name</label>
+				<input type="text" name="name" class="form-control" id="InputName"  placeholder="Enter your name" size="100" required>
+  			</div>
+		<div class="form-group">
+    		 	<label for="InputEmail">Email address</label>
+				<input type="email" name="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter email" size="100" required>
+  			</div>
+			<div class="form-group">
+				<label for="InputPassword">Password</label>
+				<input type="password" name="password" size="100" class="form-control" id="InputPassword" placeholder="Password" required>
+			</div>
+		<input type="submit" class="btn btn-primary" value="Submit">
 		
 	</form>
 	<%@include file='templates/footer.html'%>
