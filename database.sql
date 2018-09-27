@@ -214,11 +214,11 @@ insert into ahres.tables (no_of_pax) values (10);
 -------------------------------
 -- menu
 -------------------------------
-insert into ahres.menu (type, name, image, desc_eng, price) values ('Seafood','Prawn BBQ','C:\\ahres\\menu\\01.jpg','Prawn BBQ with clear soup.', 16);
-insert into ahres.menu (type, name, image, desc_eng, price) values ('Seafood','Homemade Crab Cakes','C:\\ahres\\menu\\02.jpg','We use pure lump crab meat to make this special recipe broiled crabe cakes and ', 20);
-insert into ahres.menu (type, name, image, desc_eng, price) values ('Seafood','Broiled Fish Fillet','C:\\ahres\\menu\\03.jpg','Broiled fresh whitefish fillet topped with garlic butter, lemon and pepper', 18);
-insert into ahres.menu (type, name, image, desc_eng, price) values ('Seafood','Smoked Seafood Salad','C:\\ahres\\menu\\04.jpg','Smoked and marinated with avocadoes in vinaigrette.', 15);
-insert into ahres.menu (type, name, image, desc_eng, price) values ('Vegetables','Green Papaya Salad','C:\\ahres\\menu\\05.jpg','Spicy salad made from shredded unripe papaya.', 7);
+insert into ahres.menu (type, name, image, desc_eng, price) values ('Seafood','Prawn BBQ','https://res.cloudinary.com/wkwsci/image/upload/ci6206/prawn-bbq.jpg','Prawn BBQ with clear soup.', 16);
+insert into ahres.menu (type, name, image, desc_eng, price) values ('Seafood','Homemade Crab Cakes','https://res.cloudinary.com/wkwsci/image/upload/ci6206/homemade-crab-cakes.jpg','We use pure lump crab meat to make this special recipe broiled crabe cakes and ', 20);
+insert into ahres.menu (type, name, image, desc_eng, price) values ('Seafood','Broiled Fish Fillet','https://res.cloudinary.com/wkwsci/image/upload/ci6206/broiled-fish-fillet.jpg','Broiled fresh whitefish fillet topped with garlic butter, lemon and pepper', 18);
+insert into ahres.menu (type, name, image, desc_eng, price) values ('Seafood','Smoked Seafood Salad','https://res.cloudinary.com/wkwsci/image/upload/ci6206/smoked-seafood-salad.jpg','Smoked and marinated with avocadoes in vinaigrette.', 15);
+insert into ahres.menu (type, name, image, desc_eng, price) values ('Vegetables','Green Papaya Salad','https://res.cloudinary.com/wkwsci/image/upload/ci6206/green-papaya-salad.jpg','Spicy salad made from shredded unripe papaya.', 7);
 
 -------------------------------
 -- promotions
