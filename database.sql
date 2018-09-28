@@ -1,28 +1,10 @@
-/*
-CREATE TABLE IF NOT EXISTS users (
-id int(11) NOT NULL auto_increment,
-type VARCHAR(20) NOT NULL,
-name VARCHAR(50) NOT NULL,
-email VARCHAR(100) NOT NULL,
-password VARCHAR(100) NOT NULL,
-phone VARCHAR(20),
-created_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-updated_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-deleted_date DATETIME,
-PRIMARY KEY ( id )
-);
-
-INSERT INTO users (type, name, email, password) VALUES
-('active', 'Natalya Kosenko', 'sergodeeva@gmail.com', '123');
-*/
-
 -- -----------------------------------------------------
 -- Database ahres
 -- -----------------------------------------------------
 
--- -----------------------------------------------------
--- Database ahres
--- -----------------------------------------------------
+-- ***********************************************************************
+-- Create Database
+-- ***********************************************************************
 CREATE DATABASE IF NOT EXISTS ahres ;
 USE ahres ;
 
@@ -40,7 +22,9 @@ DROP TABLE IF EXISTS ahres.users;
 DROP TABLE IF EXISTS ahres.tables;
 DROP TABLE IF EXISTS ahres.menu;
 
--- -----------------------------------------------------
+-- ***********************************************************************
+-- Create Tables
+-- ***********************************************************************
 -- Table ahres.users
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS ahres.users (
@@ -201,3 +185,106 @@ CREATE TABLE IF NOT EXISTS ahres.promotions (
     FOREIGN KEY (menu_id)
     REFERENCES ahres.menu (id))
 ;
+
+
+-- ***********************************************************************
+-- Insert Sample Records into Tables
+-- ***********************************************************************
+-------------------------------
+-- tables
+-------------------------------
+insert into ahres.tables (no_of_pax) values (2);
+insert into ahres.tables (no_of_pax) values (2);
+insert into ahres.tables (no_of_pax) values (2);
+insert into ahres.tables (no_of_pax) values (4);
+insert into ahres.tables (no_of_pax) values (4);
+insert into ahres.tables (no_of_pax) values (4);
+insert into ahres.tables (no_of_pax) values (5);
+insert into ahres.tables (no_of_pax) values (5);
+insert into ahres.tables (no_of_pax) values (5);
+insert into ahres.tables (no_of_pax) values (5);
+insert into ahres.tables (no_of_pax) values (6);
+insert into ahres.tables (no_of_pax) values (6);
+insert into ahres.tables (no_of_pax) values (8);
+insert into ahres.tables (no_of_pax) values (8);
+insert into ahres.tables (no_of_pax) values (8);
+insert into ahres.tables (no_of_pax) values (10);
+insert into ahres.tables (no_of_pax) values (10);
+
+-------------------------------
+-- menu
+-------------------------------
+insert into ahres.menu (type, name, image, desc_eng, price) values ('Seafood','Prawn BBQ','https://res.cloudinary.com/wkwsci/image/upload/ci6206/prawn-bbq.jpg','Prawn BBQ with clear soup.', 16);
+insert into ahres.menu (type, name, image, desc_eng, price) values ('Seafood','Homemade Crab Cakes','https://res.cloudinary.com/wkwsci/image/upload/ci6206/homemade-crab-cakes.jpg','We use pure lump crab meat to make this special recipe broiled crabe cakes and ', 20);
+insert into ahres.menu (type, name, image, desc_eng, price) values ('Seafood','Broiled Fish Fillet','https://res.cloudinary.com/wkwsci/image/upload/ci6206/broiled-fish-fillet.jpg','Broiled fresh whitefish fillet topped with garlic butter, lemon and pepper', 18);
+insert into ahres.menu (type, name, image, desc_eng, price) values ('Seafood','Smoked Seafood Salad','https://res.cloudinary.com/wkwsci/image/upload/ci6206/smoked-seafood-salad.jpg','Smoked and marinated with avocadoes in vinaigrette.', 15);
+insert into ahres.menu (type, name, image, desc_eng, price) values ('Vegetables','Green Papaya Salad','https://res.cloudinary.com/wkwsci/image/upload/ci6206/green-papaya-salad.jpg','Spicy salad made from shredded unripe papaya.', 7);
+
+-------------------------------
+-- promotions
+-------------------------------
+insert into ahres.promotions (menu_id,start_date,end_date,promoted_price) values (1,STR_TO_DATE('25-09-2018', '%d-%m-%Y'),STR_TO_DATE('10-10-2018', '%d-%m-%Y'),13);
+insert into ahres.promotions (menu_id,start_date,end_date,promoted_price) values (4,STR_TO_DATE('21-10-2018', '%d-%m-%Y'),STR_TO_DATE('12-11-2018', '%d-%m-%Y'),12);
+
+-------------------------------
+-- users
+-------------------------------
+insert into ahres.users (type,name,password,contact_no,email_address,created_date,updated_date,deleted_date) values ('admin','Natalya','TZcTJL8eKdos','98456239','natalya002@e.ntu.edu.sg', sysdate(),null,null);
+insert into ahres.users (type,name,password,contact_no,email_address,created_date,updated_date,deleted_date) values ('admin','Junzhi','TZcTJL8eKdov','54567353','junzhi001@e.ntu.edu.sg', sysdate(),null,null);
+insert into ahres.users (type,name,password,contact_no,email_address,created_date,updated_date,deleted_date) values ('admin','Aleng','TZcTJL8eKdou','65746345','aleng001@e.ntu.edu.sg', sysdate(),sysdate(),null);
+insert into ahres.users (type,name,password,contact_no,email_address,created_date,updated_date,deleted_date) values ('admin','Widi','TZcTJL8eKdop','73456345','widi0003@e.ntu.edu.sg', sysdate(),null,null);
+insert into ahres.users (type,name,password,contact_no,email_address,created_date,updated_date,deleted_date) values ('admin','Ayenu','TZcTJL8eKdoo','45232534','ayenu001@e.ntu.edu.sg', sysdate(),null,null);
+insert into ahres.users (type,name,password,contact_no,email_address,created_date,updated_date,deleted_date) values ('cust','Cust1','TZcTJL8eKdor','67545643','natalya002@e.ntu.edu.sg', sysdate(),sysdate(),null);
+insert into ahres.users (type,name,password,contact_no,email_address,created_date,updated_date,deleted_date) values ('cust','Cust2','TZcTJL8eKdoq','78656674','junzhi001@e.ntu.edu.sg', sysdate(),null,null);
+insert into ahres.users (type,name,password,contact_no,email_address,created_date,updated_date,deleted_date) values ('cust','Cust3','TZcTJL8eKdol','98765243','aleng001@e.ntu.edu.sg', sysdate(),null,null);
+insert into ahres.users (type,name,password,contact_no,email_address,created_date,updated_date,deleted_date) values ('cust','Cust4','TZcTJL8eKdok','65774583','widi0003@e.ntu.edu.sg', sysdate(),null,sysdate());
+insert into ahres.users (type,name,password,contact_no,email_address,created_date,updated_date,deleted_date) values ('cust','Cust5','TZcTJL8eKdos6w==','76568765','ayenu001@e.ntu.edu.sg', sysdate(),null,null);
+
+-------------------------------
+-- users_history
+-------------------------------
+insert into ahres.users_history (users_id,type,name,password,contact_no,email_address,logged_date) values (3,'admin','Aleng','TZcTJ123456','65746345','aleng001@e.ntu.edu.sg',sysdate());
+insert into ahres.users_history (users_id,type,name,password,contact_no,email_address,logged_date) values (6,'cust','Cust1','TZcTJL8eKdor','67545643','natalya002@e.ntu.edu.sg',sysdate());
+insert into ahres.users_history (users_id,type,name,password,contact_no,email_address,logged_date) values (9,'cust','Cust4','TZcTJL8eKdok','65774583','widi0003@e.ntu.edu.sg',sysdate());
+
+-------------------------------
+-- login_history
+-------------------------------
+insert into ahres.login_history (users_id,event_type,event_datetime) values (1,'login',sysdate());
+insert into ahres.login_history (users_id,event_type,event_datetime) values (1,'logout',sysdate());
+
+-------------------------------
+-- reservations
+-------------------------------
+insert into ahres.reservations (user_id, reserved_date, reserved_time, total_pax, remarks, created_date, updated_date,cancelled_date) values (6,date_add(curdate(),interval 8 day),curtime(),10,'wants big table',sysdate(),null,null);
+insert into ahres.reservations (user_id, reserved_date, reserved_time, total_pax, remarks, created_date, updated_date,cancelled_date) values (7,date_add(curdate(),interval 8 day),curtime(),5,null,sysdate(),sysdate(),null);
+insert into ahres.reservations (user_id, reserved_date, reserved_time, total_pax, remarks, created_date, updated_date,cancelled_date) values (8,date_add(curdate(),interval 8 day),curtime(),4,'no spicy',sysdate(),null,null);
+insert into ahres.reservations (user_id, reserved_date, reserved_time, total_pax, remarks, created_date, updated_date,cancelled_date) values (9,date_add(curdate(),interval 9 day),curtime(),8,null,sysdate(),null,sysdate());
+
+-------------------------------
+-- reservation_menu
+-------------------------------
+insert into ahres.reservation_menu (reservation_id,menu_id) values (1,1);
+insert into ahres.reservation_menu (reservation_id,menu_id) values (1,2);
+insert into ahres.reservation_menu (reservation_id,menu_id) values (1,3);
+insert into ahres.reservation_menu (reservation_id,menu_id) values (2,3);
+insert into ahres.reservation_menu (reservation_id,menu_id) values (2,4);
+insert into ahres.reservation_menu (reservation_id,menu_id) values (3,2);
+insert into ahres.reservation_menu (reservation_id,menu_id) values (3,4);
+insert into ahres.reservation_menu (reservation_id,menu_id) values (4,1);
+
+-------------------------------
+-- reservation_tables
+-------------------------------
+insert into ahres.reservation_tables (reservation_id,table_id) values (1,16);
+insert into ahres.reservation_tables (reservation_id,table_id) values (2,8);
+insert into ahres.reservation_tables (reservation_id,table_id) values (3,4);
+insert into ahres.reservation_tables (reservation_id,table_id) values (4,13);
+
+-------------------------------
+-- user_feedback
+-------------------------------
+insert into ahres.user_feedback (user_id,comments,rate,show_flag,created_date) values (6,'taste is very nice and also service is good.','4','Y',sysdate());
+insert into ahres.user_feedback (user_id,comments,rate,show_flag,created_date) values (10,'fresh meal','3','N',sysdate());
+
+commit;
