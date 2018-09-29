@@ -8,9 +8,8 @@
 </head>
 
 <body>
-	<%
-		String email = (String) session.getAttribute("email");
-	%>
+	<%@include file='templates/navbar.jsp'%>
+	
 	<%
 		if (email != null) {
 			response.sendRedirect("profile.jsp");
@@ -18,7 +17,6 @@
 		} else {
 	%>
 	
-	<%@include file='templates/navbar.html'%>
 	<div class="container">
 		<h2 class="mt-5 formtitle">Login</h2>
 		<form action="LoginServlet" method="GET" class="m-auto">

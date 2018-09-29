@@ -7,9 +7,8 @@
 	<%@include file='templates/head.html'%>
 </head>
 <body>
-	<%
-		String email = (String) session.getAttribute("email");
-	%>
+	<%@include file='templates/navbar.jsp'%>
+	
 	<%
 		if (email != null) {
 			response.sendRedirect("profile.jsp");
@@ -17,7 +16,6 @@
 		} else {
 	%>
 	
-	<%@include file='templates/navbar.html'%>
 	<h2 class="mt-5 formtitle">Please fill in this form to create an account.</h2>
 	<form class=" m-auto" action="RegisterServlet" method="POST">
 
@@ -36,6 +34,7 @@
 		<input type="submit" class="btn btn-primary" value="Submit">
 		
 	</form>
+	
 	<%@include file='templates/footer.html'%>
 	
 	<%
