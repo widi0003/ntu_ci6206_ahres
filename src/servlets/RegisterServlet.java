@@ -37,18 +37,18 @@ public class RegisterServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		String newUserName = request.getParameter("name");
-		String newUserEmail = request.getParameter("email");
+		String newUseremail_address = request.getParameter("email_address");
 		String newUserPassword = request.getParameter("password");
 		
 		PrintWriter out = response.getWriter();  
 		
-		boolean validEmail = true;
+		boolean validemail_address = true;
 		
 		try {
 			User newUser = new User();
-			validEmail = newUser.checkEmail(newUserEmail);
-			if (validEmail) {
-				newUser.addNewUser(newUserName, newUserEmail, newUserPassword);
+			validemail_address = newUser.checkemail_address(newUseremail_address);
+			if (validemail_address) {
+				newUser.addNewUser(newUserName, newUseremail_address, newUserPassword);
 				response.sendRedirect("register-successful.jsp");
 			} else {
 				request.getRequestDispatcher("register.jsp").include(request, response);

@@ -10,14 +10,14 @@ public class User extends Connector {
 
 	
 	//authentication for user login
-	public boolean authenticate(String email, String password) {
+	public boolean authenticate(String email_address, String password) {
 		boolean status = false;
 		try {
-			String selectStatement = "select * from users where email = ? and password = ?";
+			String selectStatement = "select * from users where email_address = ? and password = ?";
 			getConnection();
 
 			PreparedStatement prepStmt = con.prepareStatement(selectStatement);
-			prepStmt.setString(1, email);
+			prepStmt.setString(1, email_address);
 			prepStmt.setString(2, password);
 
 			ResultSet rs = prepStmt.executeQuery();
@@ -38,15 +38,15 @@ public class User extends Connector {
 	}
 	
 	
-	//get user's name by email
-	public String getName(String email) {
+	//get user's name by email_address
+	public String getName(String email_address) {
 		String name = "";
 		try {
-			String selectStatement = "select name from users where email = ?";
+			String selectStatement = "select name from users where email_address = ?";
 			getConnection();
 
 			PreparedStatement prepStmt = con.prepareStatement(selectStatement);
-			prepStmt.setString(1, email);
+			prepStmt.setString(1, email_address);
 
 			ResultSet rs = prepStmt.executeQuery();
 
@@ -65,16 +65,16 @@ public class User extends Connector {
 		return name;
 	}
 	
-	//check email validity for new user
-	public boolean checkEmail(String email) {
+	//check email_address validity for new user
+	public boolean checkemail_address(String email_address) {
 		boolean result = true;
 		
 		try {
-			String selectStatement = "select * from users where email = ?";
+			String selectStatement = "select * from users where email_address = ?";
 			getConnection();
 			
 			PreparedStatement prepStmt = con.prepareStatement(selectStatement);
-			prepStmt.setString(1, email);
+			prepStmt.setString(1, email_address);
 			
 			ResultSet rs = prepStmt.executeQuery();
 			
@@ -93,15 +93,15 @@ public class User extends Connector {
 	}
 	
 	//add new user
-	public void addNewUser(String name, String email, String password) {
+	public void addNewUser(String name, String email_address, String password) {
 		
 		try {
-			String sqlStatement = "INSERT INTO users (type, name, email, password) VALUES ('active', ?, ?, ?)";
+			String sqlStatement = "INSERT INTO users (type, name, email_address, password) VALUES ('active', ?, ?, ?)";
 			getConnection();
 		
 			PreparedStatement prepStmt = con.prepareStatement(sqlStatement);
 			prepStmt.setString(1, name);
-			prepStmt.setString(2, email);
+			prepStmt.setString(2, email_address);
 			prepStmt.setString(3, password);
 			prepStmt.executeUpdate();
 			

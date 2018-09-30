@@ -15,11 +15,11 @@
 		</ul>
 
 		<%
-			String email = (String) session.getAttribute("email");
+			String email_address = (String) session.getAttribute("email_address");
 			String username = "Phantomas";
 		%>
 		<%
-			if (email == null) { 
+			if (email_address == null) { 
 		%>
 
 		<ul class="navbar-nav">
@@ -33,7 +33,7 @@
 			} else { 
 				try {
 					User user = new User();
-					username = user.getName(email);
+					username = user.getName(email_address);
 					
 				} catch (Exception e1) {
 					e1.printStackTrace();

@@ -11,7 +11,7 @@
 	<%@include file='templates/navbar.jsp'%>
 	
 	<%
-		if (email != null) {
+		if (email_address != null) {
 			response.sendRedirect("profile.jsp");
 			return;
 		} else {
@@ -21,9 +21,9 @@
 		<h2 class="mt-5 formtitle">Login</h2>
 		<form action="LoginServlet" method="GET" class="m-auto">
 			<div class="form-group">
-    		 	<label for="InputEmail1">Email address</label>
-				<input type="email" name="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter email" size="100" required>
-    			<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    		 	<label for="Inputemail_address1">email_address address</label>
+				<input type="email_address" name="email_address" class="form-control" id="Inputemail_address1" aria-describedby="email_addressHelp" placeholder="Enter email_address" size="100" required>
+    			<small id="email_addressHelp" class="form-text text-muted">We'll never share your email_address with anyone else.</small>
   			</div>
 			<div class="form-group">
 				<label for="InputPassword1">Password</label>

@@ -21,13 +21,13 @@ public class LoginServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		String email = request.getParameter("email");
+		String email_address = request.getParameter("email_address");
 		String password = request.getParameter("password");
 		boolean result = false;
 
 		try {
 			User user = new User();
-			result = user.authenticate(email, password);
+			result = user.authenticate(email_address, password);
 		} catch (Exception e) {
 			e.printStackTrace();
 
@@ -35,7 +35,7 @@ public class LoginServlet extends HttpServlet {
 
 		if (result) {
 			HttpSession session = request.getSession();
-			session.setAttribute("email", email);
+			session.setAttribute("email_address", email_address);
 			response.sendRedirect("profile.jsp");
 
 		} else {

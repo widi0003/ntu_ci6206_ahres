@@ -10,7 +10,7 @@
 	<%@include file='templates/navbar.jsp'%>
 	
 	<%
-		if (email != null) {
+		if (email_address != null) {
 			response.sendRedirect("profile.jsp");
 			return;
 		} else {
@@ -24,8 +24,8 @@
 				<input type="text" name="name" class="form-control" id="InputName"  placeholder="Enter your name" size="100" required>
   			</div>
 		<div class="form-group">
-    		 	<label for="InputEmail">Email address</label>
-				<input type="email" name="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter email" size="100" required>
+    		 	<label for="Inputemail_address">email_address address</label>
+				<input type="email_address" name="email_address" class="form-control" id="Inputemail_address" aria-describedby="email_addressHelp" placeholder="Enter email_address" size="100" required>
   			</div>
 			<div class="form-group">
 				<label for="InputPassword">Password</label>
