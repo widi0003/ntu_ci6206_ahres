@@ -8,7 +8,7 @@
 </head>
 
 <body>
-	<%@include file='templates/navbar.html'%>
+	<%@include file='templates/navbar.jsp'%>
 	<div class="container pt-5">
 		<div class="row align-items-center">
 			<h1 class="m-auto"> Welcome to Ah Ha Restaurant!</h1>

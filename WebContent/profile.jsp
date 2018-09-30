@@ -10,28 +10,21 @@
 	<title>Profile</title>	
 </head>
 <body>
-	<% 
-		String email = (String) session.getAttribute("email");
-		String username = "Phantomas";
-		try {
-			User user = new User();
-			username = user.getName(email);
-			
-		} catch (Exception e1) {
-			e1.printStackTrace();
-		}%>
+
+	<%@include file='templates/navbar.jsp'%>
+	
 	<% if (email != null) { %>
-	<%@include file='templates/header_logged_in.html'%>
-	<p>
-		Welcome
-		<%= username %>!
-	</p>
-	<% } else {
-	response.sendRedirect("login.jsp");
-	return;
-}
- %>
-<%@include file='templates/footer.html'%>
+		<p>
+			Welcome
+			<%= username %>!
+		</p>
+		<% } else {
+			response.sendRedirect("login.jsp");
+			return;
+			}
+		%>
+		 
+	<%@include file='templates/footer.html'%>
 	
 </body>
 </html>
