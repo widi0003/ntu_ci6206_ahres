@@ -6,7 +6,7 @@
 	<%@include file='templates/head.html'%>
 </head>
 <body>
-	<%@include file='templates/navbar.html'%>
+	<%@include file='templates/navbar.jsp'%>
 	Thank you for registering! <br>
 	Now you can <a href="login.jsp">login</a> and make your reservation
 	<%@include file='templates/footer.html'%>
