@@ -10,7 +10,7 @@
 	<div class="collapse navbar-collapse" id="navbarToggler">
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item"><a class="nav-link active" href="index.jsp">Home</a></li>
-			<li class="nav-item"><a class="nav-link active">Menu</a></li>
+			<li class="nav-item"><a class="nav-link active" href="menu.jsp">Menu</a></li>
 			<li class="nav-item"><a class="nav-link active">Promotions</a></li>
 		</ul>
 

@@ -11,11 +11,11 @@ import database.Connector;
 import exceptions.MenuNotFoundException;
 
 public class Menu extends Connector {
-	@SuppressWarnings("rawtypes")
-	private ArrayList menu;
-
 	public Menu() throws Exception {
 	}
+
+	@SuppressWarnings("rawtypes")
+	private ArrayList menu;
 
 	// get menu
 	@SuppressWarnings({ "rawtypes", "unchecked" })
