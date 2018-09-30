@@ -66,7 +66,7 @@ public class User extends Connector {
 	}
 	
 	//check email validity for new user
-	public boolean checkemail(String email) {
+	public boolean checkEmail(String email) {
 		boolean result = true;
 		
 		try {
