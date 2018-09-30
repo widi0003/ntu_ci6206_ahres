@@ -13,7 +13,7 @@
 
 	<%@include file='templates/navbar.jsp'%>
 	
-	<% if (email_address != null) { %>
+	<% if (email != null) { %>
 		<p>
 			Welcome
 			<%= username %>!

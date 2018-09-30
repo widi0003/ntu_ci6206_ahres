@@ -23,7 +23,7 @@ public class LogoutServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 
 		try {
-			session.setAttribute("email_address", null);
+			session.setAttribute("email", null);
 			System.out.print("Successfully logged out");
 			response.sendRedirect("login.jsp");
 		} catch (Exception e) {
