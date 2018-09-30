@@ -16,10 +16,9 @@
 		<%
 			Menu menu = new Menu();
 			Iterator menuIter = menu.getMenu().iterator();
-			{
-				int counter = 0;
-				while (menuIter.hasNext()) {
-					MenuDetails menuItem = (MenuDetails) menuIter.next();
+
+			while (menuIter.hasNext()) {
+				MenuDetails menuItem = (MenuDetails) menuIter.next();
 		%>
 		<div class="card">
 			<img class="card-img-top" src="<%=menuItem.getImage()%>"
@@ -37,8 +36,6 @@
 		</div>
 
 		<%
-			counter++;
-				}
 			}
 		%>
 	</div>

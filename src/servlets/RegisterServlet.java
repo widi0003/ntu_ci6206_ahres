@@ -46,7 +46,7 @@ public class RegisterServlet extends HttpServlet {
 		
 		try {
 			User newUser = new User();
-			validEmail = newUser.checkEmail(newUseremail);
+			validEmail = newUser.checkEmail(newUserEmail);
 			if (validEmail) {
 				newUser.addNewUser(newUserName, newUserEmail, newUserPassword);
 				response.sendRedirect("register-successful.jsp");
