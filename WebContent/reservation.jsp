@@ -94,7 +94,7 @@
 					var year = tomorrow.getFullYear();
 
 					$('#inputdate').val(year + '-' + month + '-' + day);
-					
+
 					$('#inputdate').datepicker({
 						format : 'yyyy-mm-dd',
 						startDate : '+1d',
@@ -103,7 +103,7 @@
 					});
 
 					$('#inputpax').selectpicker();
-					
+
 					$('#inputtime').selectpicker();
 				});
 	</script>
