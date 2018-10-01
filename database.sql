@@ -229,16 +229,16 @@ insert into ahres.promotions (menu_id,start_date,end_date,promoted_price) values
 -- -----------------------------
 -- users
 -- -----------------------------
-insert into ahres.users (type,name,password,contact_no,email,created_date,updated_date,deleted_date) values ('admin','Natalya','TZcTJL8eKdos','98456239','natalya002@e.ntu.edu.sg', sysdate(),null,null);
+insert into ahres.users (type,name,password,contact_no,email,created_date,updated_date,deleted_date) values ('admin','Natalya','123','98456239','natalya002@e.ntu.edu.sg', sysdate(),null,null);
 insert into ahres.users (type,name,password,contact_no,email,created_date,updated_date,deleted_date) values ('admin','Junzhi','TZcTJL8eKdov','54567353','junzhi001@e.ntu.edu.sg', sysdate(),null,null);
 insert into ahres.users (type,name,password,contact_no,email,created_date,updated_date,deleted_date) values ('admin','Aleng','TZcTJL8eKdou','65746345','aleng001@e.ntu.edu.sg', sysdate(),sysdate(),null);
 insert into ahres.users (type,name,password,contact_no,email,created_date,updated_date,deleted_date) values ('admin','Widi','TZcTJL8eKdop','73456345','widi0003@e.ntu.edu.sg', sysdate(),null,null);
 insert into ahres.users (type,name,password,contact_no,email,created_date,updated_date,deleted_date) values ('admin','Ayenu','TZcTJL8eKdoo','45232534','ayenu001@e.ntu.edu.sg', sysdate(),null,null);
-insert into ahres.users (type,name,password,contact_no,email,created_date,updated_date,deleted_date) values ('cust','Cust1','TZcTJL8eKdor','67545643','natalya002@e.ntu.edu.sg', sysdate(),sysdate(),null);
-insert into ahres.users (type,name,password,contact_no,email,created_date,updated_date,deleted_date) values ('cust','Cust2','TZcTJL8eKdoq','78656674','junzhi001@e.ntu.edu.sg', sysdate(),null,null);
-insert into ahres.users (type,name,password,contact_no,email,created_date,updated_date,deleted_date) values ('cust','Cust3','TZcTJL8eKdol','98765243','aleng001@e.ntu.edu.sg', sysdate(),null,null);
-insert into ahres.users (type,name,password,contact_no,email,created_date,updated_date,deleted_date) values ('cust','Cust4','TZcTJL8eKdok','65774583','widi0003@e.ntu.edu.sg', sysdate(),null,sysdate());
-insert into ahres.users (type,name,password,contact_no,email,created_date,updated_date,deleted_date) values ('cust','Cust5','TZcTJL8eKdos6w==','76568765','ayenu001@e.ntu.edu.sg', sysdate(),null,null);
+insert into ahres.users (type,name,password,contact_no,email,created_date,updated_date,deleted_date) values ('cust','Cust1','123','67545643','natalya002@ntu.edu.sg', sysdate(),sysdate(),null);
+insert into ahres.users (type,name,password,contact_no,email,created_date,updated_date,deleted_date) values ('cust','Cust2','TZcTJL8eKdoq','78656674','junzhi001@ntu.edu.sg', sysdate(),null,null);
+insert into ahres.users (type,name,password,contact_no,email,created_date,updated_date,deleted_date) values ('cust','Cust3','TZcTJL8eKdol','98765243','aleng001@ntu.edu.sg', sysdate(),null,null);
+insert into ahres.users (type,name,password,contact_no,email,created_date,updated_date,deleted_date) values ('cust','Cust4','TZcTJL8eKdok','65774583','widi0003@ntu.edu.sg', sysdate(),null,sysdate());
+insert into ahres.users (type,name,password,contact_no,email,created_date,updated_date,deleted_date) values ('cust','Cust5','TZcTJL8eKdos6w==','76568765','ayenu001@ntu.edu.sg', sysdate(),null,null);
 
 -- -----------------------------
 -- users_history

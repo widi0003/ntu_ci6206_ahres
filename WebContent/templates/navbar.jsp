@@ -17,6 +17,7 @@
 		<%
 			String email = (String) session.getAttribute("email");
 			String username = "Phantomas";
+			boolean isAdmin = false;
 		%>
 		<%
 			if (email == null) { 
@@ -34,6 +35,7 @@
 				try {
 					User user = new User();
 					username = user.getName(email);
+					isAdmin = user.isAdmin(email);
 					
 				} catch (Exception e1) {
 					e1.printStackTrace();
