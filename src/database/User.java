@@ -96,7 +96,7 @@ public class User extends Connector {
 	public void addNewUser(String name, String email, String password) {
 		
 		try {
-			String sqlStatement = "INSERT INTO users (type, name, email, password) VALUES ('active', ?, ?, ?)";
+			String sqlStatement = "INSERT INTO users (type, name, email, password) VALUES ('cust', ?, ?, ?)";
 			getConnection();
 		
 			PreparedStatement prepStmt = con.prepareStatement(sqlStatement);
