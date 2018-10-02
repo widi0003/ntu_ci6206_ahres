@@ -4,42 +4,53 @@ import java.sql.Date;
 import java.sql.Time;
 
 public class ReservationDetails {
-	private int user_id = 0;
-	private Date reserved_date = null;
-	private Time reserved_time = null;
-	private int total_pax = 0;
-//	private String remarks = null;
+	private int id = 0;
+	private int userId = 0;
+	private Date reservedDate = null;
+	private Time reservedTime = null;
+	private int totalPax = 0;
+	private String remarks = null;
 
 	public ReservationDetails() {
 
 	}
 
-	public ReservationDetails(int user_id, Date reserved_date, Time reserved_time, int total_pax) {
-		this.user_id = user_id;
-		this.reserved_date = reserved_date;
-		this.reserved_time = reserved_time;
-		this.total_pax = total_pax;
-//		this.remarks = remarks;
+	public ReservationDetails(int id, int userId, Date reservedDate, Time reservedTime, int totalPax, String remarks) {
+		this.id = id;
+		this.userId = userId;
+		this.reservedDate = reservedDate;
+		this.reservedTime = reservedTime;
+		this.totalPax = totalPax;
+		this.remarks = remarks;
 	}
 
-	public int getUserID() {
-		return this.user_id;
+	public int getId() {
+		return this.id;
+	}
+
+	public int getUserId() {
+		return this.userId;
 	}
 
 	public Date getReservedDate() {
-		return this.reserved_date;
+		return this.reservedDate;
 	}
 
 	public Time getReservedTime() {
-		return this.reserved_time;
+		return this.reservedTime;
 	}
 
 	public int getTotalPax() {
-		return this.total_pax;
+		return this.totalPax;
 	}
 
-//	public String getRemarks() {
-//		return this.remarks;
-//	}
+	public String getRemarks() {
+		return this.remarks;
+	}
+
+	public int compareTo(Object o) {
+		ReservationDetails n = (ReservationDetails) o;
+		return Integer.compare(id, n.id);
+	}
 
 }

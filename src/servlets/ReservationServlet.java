@@ -32,22 +32,24 @@ public class ReservationServlet extends HttpServlet {
 		String time = request.getParameter("time");
 		String pax = request.getParameter("pax");
 
-		Date reserved_date = Date.valueOf(date);
-		Time reserved_time = Time.valueOf(time);
-		int total_pax = Integer.parseInt(pax);
+		Date reservedDate = Date.valueOf(date);
+		Time reservedTime = Time.valueOf(time);
+		int totalPax = Integer.parseInt(pax);
 
-		int user_id = 0;
+		int userId = 0;
+		int id = 0;
+		String remarks = "";
 
 		try {
 			User user = new User();
-			user_id = user.getId(email);
+			userId = user.getId(email);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
 		try {
-			ReservationDetails newReservationDetails = new ReservationDetails(user_id, reserved_date, reserved_time,
-					total_pax);
+			ReservationDetails newReservationDetails = new ReservationDetails(id, userId, reservedDate, reservedTime,
+					totalPax, remarks);
 			Reservation reservation = new Reservation();
 			reservation.addNewReservation(newReservationDetails);
 

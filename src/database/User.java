@@ -117,6 +117,32 @@ public class User extends Connector {
 		return result;
 	}
 
+	// check if user admin or not
+	public boolean isAdmin(String email) {
+		try {
+			String selectStatement = "select * from users where type = 'admin' and email = ?";
+			getConnection();
+
+			PreparedStatement prepStmt = con.prepareStatement(selectStatement);
+			prepStmt.setString(1, email);
+
+			ResultSet rs = prepStmt.executeQuery();
+
+			if (rs.next()) {
+				return true;
+
+			}
+
+			prepStmt.close();
+			releaseConnection();
+
+		} catch (SQLException ex) {
+			releaseConnection();
+			ex.printStackTrace();
+		}
+		return false;
+	}
+
 	// add new user
 	public void addNewUser(String name, String email, String password) {
 
