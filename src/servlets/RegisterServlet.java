@@ -18,32 +18,33 @@ import database.User;
 @WebServlet("/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public RegisterServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public RegisterServlet() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		String newUserName = request.getParameter("name");
 		String newUserEmail = request.getParameter("email");
 		String newUserPassword = request.getParameter("password");
-		
-		PrintWriter out = response.getWriter();  
-		
+
+		PrintWriter out = response.getWriter();
+
 		boolean validEmail = true;
-		
+
 		try {
 			User newUser = new User();
 			validEmail = newUser.checkEmail(newUserEmail);
@@ -53,9 +54,9 @@ public class RegisterServlet extends HttpServlet {
 			} else {
 				request.getRequestDispatcher("register.jsp").include(request, response);
 			}
-			
+
 		} catch (Exception e) {
-			e.printStackTrace();			
+			e.printStackTrace();
 		}
 	}
 

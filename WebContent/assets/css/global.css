@@ -6,8 +6,18 @@ h2.formtitle {
     text-align: center;
 }
 
-form {
+#reservation .btn-light {
+	background-color: white;
+	border:1px solid #ced4da;
+	
+}
+
+form{
     width: 500px;
+}
+
+form#reservation {
+	width: 750px;
 }
 
 .footer {

@@ -12,6 +12,7 @@
 			<li class="nav-item"><a class="nav-link active" href="index.jsp">Home</a></li>
 			<li class="nav-item"><a class="nav-link active" href="menu.jsp">Menu</a></li>
 			<li class="nav-item"><a class="nav-link active">Promotions</a></li>
+			<li class="nav-item"><a class="nav-link active" href="reservation.jsp">Reservation</a></li>
 		</ul>
 
 		<%
