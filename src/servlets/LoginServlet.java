@@ -28,26 +28,30 @@ public class LoginServlet extends HttpServlet {
 		try {
 			User user = new User();
 			result = user.authenticate(email, password);
+			if (result) {
+				HttpSession session = request.getSession();
+				session.setAttribute("email", email);
+				if (user.isAdmin(email)) {
+					response.sendRedirect("reservations.jsp");
+				} else {
+					response.sendRedirect("profile.jsp");
+				}
+
+			} else {
+				response.sendRedirect("login.jsp");
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 
 		}
 
-		if (result) {
-			HttpSession session = request.getSession();
-			session.setAttribute("email", email);
-			response.sendRedirect("profile.jsp");
-
-		} else {
-			response.sendRedirect("login.jsp");
-		}
 		return;
 
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 	}
 
 }
