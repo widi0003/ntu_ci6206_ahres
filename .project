@@ -28,4 +28,36 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>WebContent/reservation.jsp</name>
+			<type>1</type>
+			<location>C:/Users/lenga/git/ntu_ci6206_ahres/WebContent/reservation.jsp</location>
+		</link>
+		<link>
+			<name>WebContent/reservations.jsp</name>
+			<type>1</type>
+			<location>C:/Users/lenga/git/ntu_ci6206_ahres/WebContent/reservations.jsp</location>
+		</link>
+		<link>
+			<name>src/database/Reservation.java</name>
+			<type>1</type>
+			<location>C:/Users/lenga/git/ntu_ci6206_ahres/src/database/Reservation.java</location>
+		</link>
+		<link>
+			<name>src/database/ReservationDetails.java</name>
+			<type>1</type>
+			<location>C:/Users/lenga/git/ntu_ci6206_ahres/src/database/ReservationDetails.java</location>
+		</link>
+		<link>
+			<name>src/exceptions/ReservationsNotFoundException.java</name>
+			<type>1</type>
+			<location>C:/Users/lenga/git/ntu_ci6206_ahres/src/exceptions/ReservationsNotFoundException.java</location>
+		</link>
+		<link>
+			<name>src/servlets/ReservationServlet.java</name>
+			<type>1</type>
+			<location>C:/Users/lenga/git/ntu_ci6206_ahres/src/servlets/ReservationServlet.java</location>
+		</link>
+	</linkedResources>
 </projectDescription>

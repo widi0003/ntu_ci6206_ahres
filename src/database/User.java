@@ -142,18 +142,73 @@ public class User extends Connector {
 		}
 		return false;
 	}
+	
+	//get user's created date using email
+	public String getCreatedDate(String email) {
+		String createdDate = "";
+		try {
+			String selectStatement = "select created_date from users where email = ?";
+			getConnection();
+
+			PreparedStatement prepStmt = con.prepareStatement(selectStatement);
+			prepStmt.setString(1, email);
+
+			ResultSet rs = prepStmt.executeQuery();
+
+			if (rs.next()) {
+				createdDate = rs.getString(1);
+
+			}
+
+			prepStmt.close();
+			releaseConnection();
+
+		} catch (SQLException ex) {
+			releaseConnection();
+			ex.printStackTrace();
+		}
+		return createdDate;
+	}
+	
+	//get user's contact number using email
+	public String getContactNo(String email) {
+		String contactNumber = "";
+		try {
+			String selectStatement = "select contact_no from users where email = ?";
+			getConnection();
+
+			PreparedStatement prepStmt = con.prepareStatement(selectStatement);
+			prepStmt.setString(1, email);
+
+			ResultSet rs = prepStmt.executeQuery();
+
+			if (rs.next()) {
+				contactNumber = rs.getString(1);
+
+			}
+
+			prepStmt.close();
+			releaseConnection();
+
+		} catch (SQLException ex) {
+			releaseConnection();
+			ex.printStackTrace();
+		}
+		return contactNumber;
+	}
 
 	// add new user
-	public void addNewUser(String name, String email, String password) {
+	public void addNewUser(String name, String email, String password, String contactNo) {
 
 		try {
-			String sqlStatement = "INSERT INTO users (type, name, email, password) VALUES ('cust', ?, ?, ?)";
+			String sqlStatement = "INSERT INTO users (type, name, email, password, contact_no) VALUES ('cust', ?, ?, ?, ?)";
 			getConnection();
 
 			PreparedStatement prepStmt = con.prepareStatement(sqlStatement);
 			prepStmt.setString(1, name);
 			prepStmt.setString(2, email);
 			prepStmt.setString(3, password);
+			prepStmt.setString(4, contactNo);
 			prepStmt.executeUpdate();
 
 			prepStmt.close();

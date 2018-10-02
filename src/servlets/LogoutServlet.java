@@ -24,7 +24,9 @@ public class LogoutServlet extends HttpServlet {
 
 		try {
 			session.setAttribute("email", null);
-			System.out.print("Successfully logged out");
+			session.setAttribute("contactno", null);
+			session.setAttribute("username", null);
+			System.out.println("Successfully logged out");
 			response.sendRedirect("login.jsp");
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -40,6 +40,8 @@ public class RegisterServlet extends HttpServlet {
 		String newUserName = request.getParameter("name");
 		String newUserEmail = request.getParameter("email");
 		String newUserPassword = request.getParameter("password");
+		String newUserContact = request.getParameter("contact");
+		
 
 		PrintWriter out = response.getWriter();
 
@@ -49,7 +51,7 @@ public class RegisterServlet extends HttpServlet {
 			User newUser = new User();
 			validEmail = newUser.checkEmail(newUserEmail);
 			if (validEmail) {
-				newUser.addNewUser(newUserName, newUserEmail, newUserPassword);
+				newUser.addNewUser(newUserName, newUserEmail, newUserPassword, newUserContact);
 				response.sendRedirect("register-successful.jsp");
 			} else {
 				request.getRequestDispatcher("register.jsp").include(request, response);
