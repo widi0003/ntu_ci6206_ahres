@@ -21,7 +21,7 @@
 
 		<div class="form-group">
 			<label for="InputName">Name</label> <input type="text" name="name"
-				class="form-control" id="InputName" value=<%=username %>
+				class="form-control" id="InputName" value=<%=username%>
 				title="Edit your name" size="100" required> <small
 				id="username-help" class="form-text text-muted">Edit your
 				name</small>
@@ -30,7 +30,7 @@
 		<div class="form-group">
 			<label for="InputEmail">Email address</label> <input type="text"
 				name="email" class="form-control" id="InputEmail"
-				aria-describedby="emailHelp" value=<%=email %> size="100" readonly>
+				aria-describedby="emailHelp" value=<%=email%> size="100" readonly>
 			<small id="email-help" class="form-text text-muted">You
 				cannot change your email</small>
 		</div>
@@ -38,7 +38,7 @@
 			<label for="InputContactNo">Contact Number</label> <input type="text"
 				name="contact" class="form-control" id="InputContact"
 				aria-describedby="contactHelp"
-				value=<%=(String)session.getAttribute("contactno") %> size="100"
+				value=<%=(String) session.getAttribute("contactno")%> size="100"
 				required> <small id="contact-help"
 				class="form-text text-muted">Change your contact number</small>
 
