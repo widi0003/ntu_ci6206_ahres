@@ -24,7 +24,7 @@
 				Cookie[] cookies = null;
 				String emailCookie = "";
 				String passwordCookie = "";
-
+				
 				cookies = request.getCookies();
 
 				if (cookies != null) {

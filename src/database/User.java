@@ -37,6 +37,37 @@ public class User extends Connector {
 		return status;
 	}
 
+	public boolean updateUserDetails(UserDetails user) {
+		try {
+			String updateStatement = "update users set name=?, contact_no=?, updated_date=? where email=?";
+			getConnection();
+
+			Timestamp date = new Timestamp(new java.util.Date().getTime());
+
+			PreparedStatement prepStmt = con.prepareStatement(updateStatement);
+			prepStmt.setString(1, user.getName());
+			prepStmt.setString(2, user.getContactNo());
+			prepStmt.setTimestamp(3, date);
+			prepStmt.setString(4, user.getEmail());
+
+			System.out.println(
+					"Updating " + user.getName() + ", " + user.getContactNo() + "," + date + ", " + user.getEmail());
+
+			prepStmt.executeUpdate();
+
+			prepStmt.close();
+			releaseConnection();
+
+			return true;
+
+		} catch (SQLException ex) {
+			releaseConnection();
+			ex.printStackTrace();
+			return false;
+		}
+
+	}
+
 	// get user's details by email
 	public UserDetails getUserDetails(String email) {
 		UserDetails user = null;
