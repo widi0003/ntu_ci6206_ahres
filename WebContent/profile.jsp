@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ page import="javax.servlet.http.HttpSession"%>
-<%@ page import="database.User"%>
+<%@ page import="java.sql.Date,database.User,database.UserDetails"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -16,11 +16,12 @@
 	<% if (email != null) { 
 		
 		String contactNo = "";
-	    String createdDate = "";
+	    Date createdDate = null;
 		try {
 			User user = new User();
-			contactNo = user.getContactNo(email);
-			createdDate = user.getCreatedDate(email);
+			UserDetails userDetails = user.getUserDetails(email);
+			contactNo = userDetails.getContactNo();
+			createdDate = userDetails.getCreatedDate();
 			
 			session.setAttribute("contactno", contactNo);
 					
@@ -37,11 +38,11 @@
 		</div>
 	</div>
 	<%
-	if (createdDate.length() > 0) {
+	if (createdDate != null) {
 	%><br>
 	<div class="profile-item" style="font-weight: normal">
 		Member since
-		<%=createdDate.substring(0, 10) %></div>
+		<%=createdDate %></div>
 	<% } %>
 	<br>
 	<div class="profile-item">Name:</div>
