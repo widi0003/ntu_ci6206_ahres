@@ -13,60 +13,64 @@
 
 	<%@include file='templates/navbar.jsp'%>
 
-	<% if (email != null) { 
-		
-		String contactNo = "";
-	    Date createdDate = null;
-		try {
-			User user = new User();
-			UserDetails userDetails = user.getUserDetails(email);
-			contactNo = userDetails.getContactNo();
-			createdDate = userDetails.getCreatedDate();
-			
-			session.setAttribute("contactno", contactNo);
-					
-		} catch (Exception e1) {
-			e1.printStackTrace();
-		}
+	<%
+		if (email != null) {
+
+			String contactNo = "";
+			Date createdDate = null;
+			try {
+				User user = new User();
+				UserDetails userDetails = user.getUserDetails(email);
+				contactNo = userDetails.getContactNo();
+				createdDate = userDetails.getCreatedDate();
+
+				session.setAttribute("contactno", contactNo);
+
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
 	%>
 	<div class="container pt-5">
 		<div class="row align-items-center">
 			<h2 class="m-auto">
-				<span style="color: #0b5680"> <%= username %>'s profile
+				<span style="color: #0b5680"> <%=username%>'s profile
 				</span>
 			</h2>
 		</div>
 	</div>
 	<%
-	if (createdDate != null) {
+		if (createdDate != null) {
 	%><br>
 	<div class="profile-item" style="font-weight: normal">
 		Member since
-		<%=createdDate %></div>
-	<% } %>
+		<%=createdDate%></div>
+	<%
+		}
+	%>
 	<br>
 	<div class="profile-item">Name:</div>
 	<div class="profile-value">
-		<%= username %>
+		<%=username%>
 	</div>
 	<br>
 	<div class="profile-item">Email:</div>
 	<div class="profile-value">
-		<%=email %>
+		<%=email%>
 	</div>
 	<br>
 	<div class="profile-item">Mobile:</div>
 	<div class="profile-value">
-		<%=contactNo %>
+		<%=contactNo%>
 	</div>
 	<br>
 
 
-	<% } else {
+	<%
+		} else {
 			response.sendRedirect("login.jsp");
 			return;
-			}
-		%>
+		}
+	%>
 	<center>
 		<button onclick="window.location.href='editprofile.jsp'"
 			class="btn btn-primary">Edit Profile</button>

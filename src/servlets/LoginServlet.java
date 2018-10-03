@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.http.Cookie;
 
 import database.User;
@@ -61,7 +60,8 @@ public class LoginServlet extends HttpServlet {
 				}
 
 			} else {
-				response.sendRedirect("login.jsp");
+				request.setAttribute("errorMessage", "Incorrect email or password. Please try again.");
+				request.getRequestDispatcher("login.jsp").include(request, response);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
