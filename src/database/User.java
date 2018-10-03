@@ -3,6 +3,7 @@ package database;
 import java.sql.*;
 
 import database.Connector;
+import database.UserDetails;
 
 public class User extends Connector {
 	public User() throws Exception {
@@ -36,11 +37,11 @@ public class User extends Connector {
 		return status;
 	}
 
-	// get user's name by email
-	public String getName(String email) {
-		String name = "";
+	// get user's details by email
+	public UserDetails getUserDetails(String email) {
+		UserDetails user = null;
 		try {
-			String selectStatement = "select name from users where email = ?";
+			String selectStatement = "select * from users where email = ?";
 			getConnection();
 
 			PreparedStatement prepStmt = con.prepareStatement(selectStatement);
@@ -49,7 +50,8 @@ public class User extends Connector {
 			ResultSet rs = prepStmt.executeQuery();
 
 			if (rs.next()) {
-				name = rs.getString(1);
+				user = new UserDetails(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
+						rs.getString(6), rs.getDate(7));
 
 			}
 
@@ -60,34 +62,8 @@ public class User extends Connector {
 			releaseConnection();
 			ex.printStackTrace();
 		}
-		return name;
-	}
+		return user;
 
-	// get user's id by email
-	public int getId(String email) {
-		int id = 0;
-		try {
-			String selectStatement = "select id from users where email = ?";
-			getConnection();
-
-			PreparedStatement prepStmt = con.prepareStatement(selectStatement);
-			prepStmt.setString(1, email);
-
-			ResultSet rs = prepStmt.executeQuery();
-
-			if (rs.next()) {
-				id = rs.getInt(1);
-
-			}
-
-			prepStmt.close();
-			releaseConnection();
-
-		} catch (SQLException ex) {
-			releaseConnection();
-			ex.printStackTrace();
-		}
-		return id;
 	}
 
 	// check email validity for new user
@@ -141,60 +117,6 @@ public class User extends Connector {
 			ex.printStackTrace();
 		}
 		return false;
-	}
-	
-	//get user's created date using email
-	public String getCreatedDate(String email) {
-		String createdDate = "";
-		try {
-			String selectStatement = "select created_date from users where email = ?";
-			getConnection();
-
-			PreparedStatement prepStmt = con.prepareStatement(selectStatement);
-			prepStmt.setString(1, email);
-
-			ResultSet rs = prepStmt.executeQuery();
-
-			if (rs.next()) {
-				createdDate = rs.getString(1);
-
-			}
-
-			prepStmt.close();
-			releaseConnection();
-
-		} catch (SQLException ex) {
-			releaseConnection();
-			ex.printStackTrace();
-		}
-		return createdDate;
-	}
-	
-	//get user's contact number using email
-	public String getContactNo(String email) {
-		String contactNumber = "";
-		try {
-			String selectStatement = "select contact_no from users where email = ?";
-			getConnection();
-
-			PreparedStatement prepStmt = con.prepareStatement(selectStatement);
-			prepStmt.setString(1, email);
-
-			ResultSet rs = prepStmt.executeQuery();
-
-			if (rs.next()) {
-				contactNumber = rs.getString(1);
-
-			}
-
-			prepStmt.close();
-			releaseConnection();
-
-		} catch (SQLException ex) {
-			releaseConnection();
-			ex.printStackTrace();
-		}
-		return contactNumber;
 	}
 
 	// add new user

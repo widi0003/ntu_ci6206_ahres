@@ -1,4 +1,4 @@
-<%@ page import="database.User"%>
+<%@ page import="database.User,database.UserDetails"%>
 <nav class="navbar navbar-expand-lg navbar-light bg-light"
 	id="login-navigation">
 	<a class="navbar-brand" href="#"> <img
@@ -40,8 +40,9 @@
 			} else {
 				try {
 					User user = new User();
-					userId = user.getId(email);
-					username = user.getName(email);
+					UserDetails userDetails = user.getUserDetails(email);
+					userId = userDetails.getId();
+					username = userDetails.getName();
 					isAdmin = user.isAdmin(email);
 
 				} catch (Exception e1) {
