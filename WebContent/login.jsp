@@ -24,9 +24,7 @@
 				Cookie[] cookies = null;
 				String emailCookie = "";
 				String passwordCookie = "";
-				
 				cookies = request.getCookies();
-
 				if (cookies != null) {
 					for (int i = 0; i < cookies.length; i++) {
 						cookie = cookies[i];
@@ -36,7 +34,6 @@
 							passwordCookie = cookie.getValue();
 						}
 					}
-
 				}
 		%>
 		<form action="LoginServlet" method="POST" class=" m-auto">
