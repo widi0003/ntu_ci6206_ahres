@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.http.Cookie;
 
 import database.User;
@@ -27,7 +26,7 @@ public class LoginServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		String rememberMe = request.getParameter("remember");
-
+		
 		boolean result = false;
 
 		try {
@@ -37,15 +36,16 @@ public class LoginServlet extends HttpServlet {
 				if (rememberMe != null && rememberMe.equals("RememberMe")) {
 					Cookie emailCookie = new Cookie("email", email);
 					Cookie passwordCookie = new Cookie("password", password);
-					emailCookie.setMaxAge(24 * 60 * 60); // 1 day
-					passwordCookie.setMaxAge(24 * 60 * 60);
+					emailCookie.setMaxAge(24*60*60); //1 day
+					passwordCookie.setMaxAge(24*60*60);
 					response.addCookie(emailCookie);
 					response.addCookie(passwordCookie);
 					System.out.println("Added email Cookie and Password Cookie");
-				} else {
+				}
+				else {
 					Cookie emailCookie = new Cookie("email", email);
 					Cookie passwordCookie = new Cookie("password", password);
-					emailCookie.setMaxAge(0); // Clear the cookie
+					emailCookie.setMaxAge(0); //Clear the cookie
 					passwordCookie.setMaxAge(0);
 					response.addCookie(emailCookie);
 					response.addCookie(passwordCookie);
@@ -60,9 +60,8 @@ public class LoginServlet extends HttpServlet {
 				}
 
 			} else {
-				request.setAttribute("error", "true");
-				RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
-				rd.forward(request, response);
+				request.setAttribute("errorMessage", "Incorrect email or password. Please try again.");
+				request.getRequestDispatcher("login.jsp").include(request, response);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

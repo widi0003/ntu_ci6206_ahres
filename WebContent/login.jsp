@@ -14,43 +14,45 @@
 		if (email != null) {
 			response.sendRedirect("profile.jsp");
 			return;
-		} else {	
+		} else {
 	%>
 
 	<div class="container">
 		<h2 class="mt-5 formtitle">Login</h2>
 		<%
-			String error = (String)request.getAttribute("error");
-		    if (error != null && error.equals("true")) {
-	%>
-		<h6 id="errorlogin">Incorrect email or password. Please try
-			again.</h6>
-		<%
-		    }
-		    
-		    Cookie cookie = null;
-			Cookie[] cookies = null;
-			String emailCookie = "";
-			String passwordCookie = "";
-			
-			cookies = request.getCookies();
-						
-			if (cookies != null) {
-				for (int i = 0; i < cookies.length; i++) {
-					cookie = cookies[i];
-					if (cookie.getName().equals("email")) {
-						emailCookie = cookie.getValue();
-					}
-					else if (cookie.getName().equals("password")) {
-						passwordCookie = cookie.getValue();
+			Cookie cookie = null;
+				Cookie[] cookies = null;
+				String emailCookie = "";
+				String passwordCookie = "";
+				cookies = request.getCookies();
+				if (cookies != null) {
+					for (int i = 0; i < cookies.length; i++) {
+						cookie = cookies[i];
+						if (cookie.getName().equals("email")) {
+							emailCookie = cookie.getValue();
+						} else if (cookie.getName().equals("password")) {
+							passwordCookie = cookie.getValue();
+						}
 					}
 				}
-				
-			}
-						
-		
-	%>
-		<form action="LoginServlet" method="POST" class="m-auto">
+		%>
+		<form action="LoginServlet" method="POST" class=" m-auto">
+			<%
+				if (request.getAttribute("errorMessage") != null) {
+			%>
+			<div class="alert alert-warning" role="alert">
+				<%=request.getAttribute("errorMessage")%>
+			</div>
+			<%
+				}
+			%>
+			<%
+				if (request.getAttribute("registrationMessage") != null) {
+			%>
+			<div class="alert alert-success" role="alert"><%=request.getAttribute("registrationMessage")%></div>
+			<%
+				}
+			%>
 			<div class="form-group">
 				<label for="InputEmail1">Email address</label> <input type="email"
 					name="email" class="form-control" id="InputEmail1"
@@ -62,11 +64,11 @@
 			<div class="form-group">
 				<label for="InputPassword1">Password</label> <input type="password"
 					name="password" size="100" class="form-control" id="InputPassword1"
-					placeholder="Password" required value=<%=passwordCookie %>>
+					placeholder="Password" required value=<%=passwordCookie%>>
 			</div>
 			<div class="form-group">
 				<input type="checkbox" name="remember" value="RememberMe"
-					<% if (emailCookie.length() > 0) { %> checked <%} %>>Remember
+					<%if (emailCookie.length() > 0) {%> checked <%}%>>Remember
 				me next time<br>
 			</div>
 			<button type="submit" class="btn btn-primary">Submit</button>
