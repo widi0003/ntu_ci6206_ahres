@@ -11,7 +11,7 @@ public class Connector {
 	public static String url = "jdbc:mysql://localhost:3306/ahres";
 	public static String dbdriver = "com.mysql.jdbc.Driver";
 	public static String username = "root";
-	public static String password = "toor";
+	public static String password = "123";
 
 	public Connector() throws Exception {
 		try {
