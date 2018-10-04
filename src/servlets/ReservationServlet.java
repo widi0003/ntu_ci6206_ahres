@@ -55,7 +55,8 @@ public class ReservationServlet extends HttpServlet {
 					totalPax, remarks);
 			Reservation reservation = new Reservation();
 			reservation.addNewReservation(newReservationDetails);
-
+			response.sendRedirect("reserve-successful.jsp");
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
