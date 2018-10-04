@@ -3,6 +3,7 @@ package database;
 import java.sql.*;
 
 import database.Connector;
+import database.UserDetails;
 
 public class User extends Connector {
 	public User() throws Exception {
@@ -36,38 +37,42 @@ public class User extends Connector {
 		return status;
 	}
 
-	// get user's name by email
-	public String getName(String email) {
-		String name = "";
+	public boolean updateUserDetails(UserDetails user) {
 		try {
-			String selectStatement = "select name from users where email = ?";
+			String updateStatement = "update users set name=?, contact_no=?, updated_date=? where email=?";
 			getConnection();
 
-			PreparedStatement prepStmt = con.prepareStatement(selectStatement);
-			prepStmt.setString(1, email);
+			Timestamp date = new Timestamp(new java.util.Date().getTime());
 
-			ResultSet rs = prepStmt.executeQuery();
+			PreparedStatement prepStmt = con.prepareStatement(updateStatement);
+			prepStmt.setString(1, user.getName());
+			prepStmt.setString(2, user.getContactNo());
+			prepStmt.setTimestamp(3, date);
+			prepStmt.setString(4, user.getEmail());
 
-			if (rs.next()) {
-				name = rs.getString(1);
+			System.out.println(
+					"Updating " + user.getName() + ", " + user.getContactNo() + "," + date + ", " + user.getEmail());
 
-			}
+			prepStmt.executeUpdate();
 
 			prepStmt.close();
 			releaseConnection();
 
+			return true;
+
 		} catch (SQLException ex) {
 			releaseConnection();
 			ex.printStackTrace();
+			return false;
 		}
-		return name;
+
 	}
 
-	// get user's id by email
-	public int getId(String email) {
-		int id = 0;
+	// get user's details by email
+	public UserDetails getUserDetails(String email) {
+		UserDetails user = null;
 		try {
-			String selectStatement = "select id from users where email = ?";
+			String selectStatement = "select * from users where email = ?";
 			getConnection();
 
 			PreparedStatement prepStmt = con.prepareStatement(selectStatement);
@@ -76,7 +81,8 @@ public class User extends Connector {
 			ResultSet rs = prepStmt.executeQuery();
 
 			if (rs.next()) {
-				id = rs.getInt(1);
+				user = new UserDetails(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
+						rs.getString(6), rs.getDate(7));
 
 			}
 
@@ -87,7 +93,8 @@ public class User extends Connector {
 			releaseConnection();
 			ex.printStackTrace();
 		}
-		return id;
+		return user;
+
 	}
 
 	// check email validity for new user
@@ -144,16 +151,17 @@ public class User extends Connector {
 	}
 
 	// add new user
-	public void addNewUser(String name, String email, String password) {
+	public void addNewUser(String name, String email, String password, String contactNo) {
 
 		try {
-			String sqlStatement = "INSERT INTO users (type, name, email, password) VALUES ('cust', ?, ?, ?)";
+			String sqlStatement = "INSERT INTO users (type, name, email, password, contact_no) VALUES ('cust', ?, ?, ?, ?)";
 			getConnection();
 
 			PreparedStatement prepStmt = con.prepareStatement(sqlStatement);
 			prepStmt.setString(1, name);
 			prepStmt.setString(2, email);
 			prepStmt.setString(3, password);
+			prepStmt.setString(4, contactNo);
 			prepStmt.executeUpdate();
 
 			prepStmt.close();
