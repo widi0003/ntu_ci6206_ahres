@@ -50,8 +50,10 @@ public class ReservationServlet extends HttpServlet {
 		try {
 			ReservationDetails newReservationDetails = new ReservationDetails(id, userId, reservedDate, reservedTime,
 					totalPax, remarks);
+			
 			Reservation reservation = new Reservation();
 			reservation.addNewReservation(newReservationDetails);
+
 			response.sendRedirect("reserve-successful.jsp");
 			
 		} catch (Exception e) {

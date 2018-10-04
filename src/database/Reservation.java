@@ -77,4 +77,37 @@ public class Reservation extends Connector {
 
 		return reservations;
 	}
+	
+	//Getting latest reservation made.
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public List getLastReservation(int userId) throws ReservationsNotFoundException {
+		reservations = new ArrayList();
+		
+		try {
+			getConnection();
+
+			String selectStatement = "select id,user_id,reserved_date,reserved_time,total_pax,remarks from reservations where user_id = ? group by id desc";
+
+			PreparedStatement prepStmt = con.prepareStatement(selectStatement);
+			prepStmt.setInt(1, userId);
+			ResultSet rs = prepStmt.executeQuery();
+			rs.next();
+			
+				ReservationDetails reservation = new ReservationDetails(rs.getInt(1), rs.getInt(2), rs.getDate(3),
+						rs.getTime(4), rs.getInt(5), rs.getString(6));
+
+				if (rs.getInt(1) > 0) {
+					reservations.add(reservation);
+				}
+			
+
+			
+		} catch (SQLException ex) {
+			throw new ReservationsNotFoundException(ex.getMessage());
+		}
+
+		releaseConnection();
+
+		return reservations;
+	}
 }
