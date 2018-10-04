@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import database.UserDetails;
+
 @WebServlet("/ReservationServlet")
 public class ReservationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -42,7 +44,8 @@ public class ReservationServlet extends HttpServlet {
 
 		try {
 			User user = new User();
-			userId = user.getId(email);
+			UserDetails userDetails = user.getUserDetails(email);
+			userId = userDetails.getId();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

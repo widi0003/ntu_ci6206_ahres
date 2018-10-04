@@ -287,4 +287,64 @@ insert into ahres.reservation_tables (reservation_id,table_id) values (4,13);
 insert into ahres.user_feedback (user_id,comments,rate,show_flag,created_date) values (6,'taste is very nice and also service is good.','4','Y',sysdate());
 insert into ahres.user_feedback (user_id,comments,rate,show_flag,created_date) values (10,'fresh meal','3','N',sysdate());
 
+-- ***********************************************************************
+-- Views
+-- ***********************************************************************
+CREATE OR REPLACE VIEW AHRES.V_RESERVATION_TBL_DTL
+AS SELECT r.id				as resrv_id
+		  , r.user_id		as user_id
+		  , r.reserved_date as reserved_date
+		  , r.reserved_time as reserved_time
+		  , r.total_pax		as total_pax
+		  , r.remarks		as remarks
+		  , r.created_date	as resrv_created_date
+		  , r.updated_date  as resrv_updated_date
+		  , r.cancelled_date as cancelled_date
+		  , u.type		     as type
+		  , u.name           as name
+		  , u.password	     as passwords
+		  , u.contact_no     as contact_no
+		  , u.email_address  as email_address
+		  , u.created_date   as user_created_date
+		  , u.updated_date   as user_updated_date
+		  , u.deleted_date   as user_deleted_date
+		  , rt.table_id      as table_id
+          , t.no_of_pax      as no_of_pax
+FROM AHRES.reservations r 
+INNER JOIN AHRES.users u ON r.user_id = u.id
+INNER JOIN AHRES.reservation_tables rt ON r.id = rt.reservation_id
+INNER JOIN AHRES.tables t ON rt.table_id = t.id
+;
+-------------------------------
+CREATE OR REPLACE VIEW AHRES.V_RESERVATION_MENU_DTL
+AS SELECT r.id				as resrv_id
+		  , r.user_id		as user_id
+		  , r.reserved_date as reserved_date
+		  , r.reserved_time as reserved_time
+		  , r.total_pax		as total_pax
+		  , r.remarks		as remarks
+		  , r.created_date	as resrv_created_date
+		  , r.updated_date  as resrv_updated_date
+		  , r.cancelled_date as cancelled_date
+		  , u.type		     as type
+		  , u.name           as name
+		  , u.password	     as passwords
+		  , u.contact_no     as contact_no
+		  , u.email_address  as email_address
+		  , u.created_date   as user_created_date
+		  , u.updated_date   as user_updated_date
+		  , u.deleted_date   as user_deleted_date
+		  , rm.menu_id       as menu_id
+          , m.type           as menu_type
+          , m.name           as menu_name
+          , m.image          as image
+          , m.desc_eng       as desc_eng
+          , m.desc_chinese   as desc_chinese
+          , m.price          as price
+FROM AHRES.reservations r 
+INNER JOIN AHRES.users u ON r.user_id = u.id
+INNER JOIN AHRES.reservation_menu rm ON r.id = rm.reservation_id
+INNER JOIN AHRES.menu m ON rm.menu_id = m.id
+;
+-------------------------------
 commit;
