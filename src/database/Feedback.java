@@ -21,7 +21,7 @@ public class Feedback extends Connector {
 	public void addNewFeedback(FeedbackDetails newFeedback) {
 
 		try {
-			String sqlStatement = "INSERT INTO Feedbacks (user_id, comments, rate, show_flag) VALUES (?, ?, ?, ?)";
+			String sqlStatement = "INSERT INTO user_feedback (user_id, comments, rate, show_flag) VALUES (?, ?, ?, ?)";
 			getConnection();
 
 			PreparedStatement prepStmt = con.prepareStatement(sqlStatement);

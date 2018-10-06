@@ -58,23 +58,23 @@
 		<div class='rating-stars text-center form-group'>
 			<ul id='stars' class='p-0'>
 				<li class='star' title='Poor' data-value='1'>
-					<input class="form-check-input checkbox-rate star" type="radio" name="feedbackRate" value="1" id="star-1" >
+					<input class="form-check-input checkbox-rate star" type="radio" name="rate" value="1" id="star-1" >
 					<label for="star-1"><i class='fa fa-star fa-fw' ></i></label>
 				</li>
 				<li class='star' title='Fair' data-value='2'>
-					<input class="form-check-input checkbox-rate star" type="radio"	name="feedbackRate" value="2" id="star-2">
+					<input class="form-check-input checkbox-rate star" type="radio"	name="rate" value="2" id="star-2">
 					<label for="star-2"><i class='fa fa-star fa-fw' ></i></label>
 				</li>
 				<li class='star' title='Good' data-value='3'>
-					<input	class="form-check-input checkbox-rate star" type="radio" name="feedbackRate" value="3" id="star-3">
+					<input	class="form-check-input checkbox-rate star" type="radio" name="rate" value="3" id="star-3">
 					<label for="star-3"><i class='fa fa-star fa-fw' ></i></label>
 				</li>
 				<li class='star' title='Excellent' data-value='4'>
-					<input class="form-check-input checkbox-rate star" type="radio"	name="feedbackRate" value="4" id="star-4">
+					<input class="form-check-input checkbox-rate star" type="radio"	name="rate" value="4" id="star-4">
 					<label for="star-4"><i class='fa fa-star fa-fw' ></i></label>
 				</li>
 				<li class='star' title='Perfect' data-value='5'>
-					<input class="form-check-input checkbox-rate star" type="radio"	name="feedbackRate" value="5" id="star-5">
+					<input class="form-check-input checkbox-rate star" type="radio"	name="rate" value="5" id="star-5">
 					<label for="star-5"><i class='fa fa-star fa-fw' ></i></label>
 				</li>
 			</ul>
