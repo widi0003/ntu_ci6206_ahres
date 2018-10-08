@@ -50,6 +50,10 @@ form#reservation {
 	text-align: center;
 }
 
+#errpass {
+	color: red;
+}
+
 .profile-item {
 	color: #0b5680;
 	font-weight: bold;
