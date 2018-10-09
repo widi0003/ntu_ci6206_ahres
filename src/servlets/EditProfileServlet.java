@@ -33,25 +33,20 @@ public class EditProfileServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String contact = request.getParameter("contact");
 		String username = request.getParameter("name");
-		String cancel = request.getParameter("cancel");
-
+	
 		try {
 
-			if (cancel == null) {
-				User user = new User();
-				UserDetails userDetails = user.getUserDetails(email);
-				userDetails.setContactNo(contact);
-				userDetails.setName(username);
+			User user = new User();
+			UserDetails userDetails = user.getUserDetails(email);
+			userDetails.setContactNo(contact);
+			userDetails.setName(username);
 
-				if (user.updateUserDetails(userDetails)) {
-					System.out.println(
-							"OK setting contact:" + contact + ", username:" + username + " for email:" + email);
-				}
-				response.sendRedirect("profile.jsp");
-			} else {
-				response.sendRedirect("editprofile.jsp");
-
+			if (user.updateUserDetails(userDetails)) {
+				System.out.println(
+						"OK setting contact:" + contact + ", username:" + username + " for email:" + email);
 			}
+			response.sendRedirect("profile.jsp");
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();
