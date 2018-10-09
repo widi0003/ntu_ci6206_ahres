@@ -30,6 +30,7 @@ public class ChangePasswordServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	// TODO: Change to do client-side validation --- Albert
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
@@ -38,7 +39,7 @@ public class ChangePasswordServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		String newPassword = request.getParameter("newpassword");
 		String repeatNewPassword = request.getParameter("repeatnewpassword");
-	
+
 		request.setAttribute("password", password);
 		request.setAttribute("newPassword", newPassword);
 		request.setAttribute("repeatNewPassword", repeatNewPassword);
@@ -48,7 +49,7 @@ public class ChangePasswordServlet extends HttpServlet {
 
 		boolean result = false;
 		try {
-			
+
 			System.out.println("email: " + email);
 			if (email != null) {
 				User user = new User();

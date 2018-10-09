@@ -14,21 +14,21 @@
 			response.sendRedirect("login.jsp");
 			return;
 		} else {
-			
+
 			String password = "";
 			String newPassword = "";
 			String repeatNewPassword = "";
-			
+
 			if (request.getAttribute("password") != null) {
-				password = (String)request.getAttribute("password");
+				password = (String) request.getAttribute("password");
 			}
-			
+
 			if (request.getAttribute("newPassword") != null) {
-				newPassword = (String)request.getAttribute("newPassword");
+				newPassword = (String) request.getAttribute("newPassword");
 			}
-			
+
 			if (request.getAttribute("repeatNewPassword") != null) {
-				repeatNewPassword = (String)request.getAttribute("repeatNewPassword");
+				repeatNewPassword = (String) request.getAttribute("repeatNewPassword");
 			}
 	%>
 
@@ -42,41 +42,53 @@
 				value=<%=password%>>
 			<%
 				if (request.getAttribute("errorOldPassword") != null) {
-				%>
-			<div id="errpass"><%=request.getAttribute("errorOldPassword")%></div>
-			<%} 
-				else { %>
+			%>
+			<div class="alert alert-warning">
+				<strong>Warning! </strong><%=request.getAttribute("errorOldPassword")%></div>
+			<%
+				} else {
+			%>
 			<small id="oldpassword-help" class="form-text text-muted">Enter
 				your old password</small>
-			<% } %>
+			<%
+				}
+			%>
 		</div>
 		<div class="form-group">
 			<label for="NewPassword">New Password</label> <input type="password"
 				name="newpassword" class="form-control" id="NewPassword" size="100"
 				required value=<%=newPassword%>>
 			<%
-					if (request.getAttribute("differentPassword") != null) {
-				%>
-			<div id="errpass"><%=request.getAttribute("differentPassword") %></div>
-			<%} 
-				else { %>
+				if (request.getAttribute("differentPassword") != null) {
+			%>
+			<div class="alert alert-warning">
+				<strong>Warning! </strong><%=request.getAttribute("differentPassword")%></div>
+			<%
+				} else {
+			%>
 			<small id="newpassword-help" class="form-text text-muted">Enter
 				your new password</small>
-			<% } %>
+			<%
+				}
+			%>
 		</div>
 		<div class="form-group">
 			<label for="RepeatNewPassword">Repeat</label> <input type="password"
 				name="repeatnewpassword" class="form-control" id="RepeatNewPassword"
 				size="100" required value=<%=repeatNewPassword%>>
 			<%
-					if (request.getAttribute("differentPassword") != null) {
-				%>
-			<div id="errpass"><%=request.getAttribute("differentPassword") %></div>
-			<%} 
-				else { %>
+				if (request.getAttribute("differentPassword") != null) {
+			%>
+			<div class="alert alert-warning">
+				<strong>Warning! </strong><%=request.getAttribute("differentPassword")%></div>
+			<%
+				} else {
+			%>
 			<small id="newpassword-help" class="form-text text-muted">Repeat
 				your new password</small>
-			<% } %>
+			<%
+				}
+			%>
 
 		</div>
 
