@@ -44,12 +44,6 @@ form#reservation {
 	text-decoration: none;
 }
 
-#errorlogin {
-	color: red;
-	margin: 0 auto;
-	text-align: center;
-}
-
 .profile-item {
 	color: #0b5680;
 	font-weight: bold;

@@ -12,36 +12,25 @@
 
 	<%
 		if (email != null) {
+
 			response.sendRedirect("profile.jsp");
 			return;
 		} else {
+
+			Cookie cookie = null;
+			Cookie[] cookies = null;
+			String emailCookie = "";
+			String passwordCookie = "";
 	%>
 
 	<div class="container">
 		<h2 class="mt-5 formtitle">Login</h2>
-		<%
-			Cookie cookie = null;
-				Cookie[] cookies = null;
-				String emailCookie = "";
-				String passwordCookie = "";
-				cookies = request.getCookies();
-				if (cookies != null) {
-					for (int i = 0; i < cookies.length; i++) {
-						cookie = cookies[i];
-						if (cookie.getName().equals("email")) {
-							emailCookie = cookie.getValue();
-						} else if (cookie.getName().equals("password")) {
-							passwordCookie = cookie.getValue();
-						}
-					}
-				}
-		%>
 		<form action="LoginServlet" method="POST" class=" m-auto">
 			<%
 				if (request.getAttribute("errorMessage") != null) {
 			%>
 			<div class="alert alert-warning" role="alert">
-				<%=request.getAttribute("errorMessage")%>
+				<strong>Warning! </strong><%=request.getAttribute("errorMessage")%>
 			</div>
 			<%
 				}
@@ -49,9 +38,30 @@
 			<%
 				if (request.getAttribute("registrationMessage") != null) {
 			%>
-			<div class="alert alert-success" role="alert"><%=request.getAttribute("registrationMessage")%></div>
+			<div class="alert alert-success" role="alert">
+				<strong>Success! </strong><%=request.getAttribute("registrationMessage")%></div>
 			<%
 				}
+			%>
+			<%
+				if (request.getAttribute("changepassword") != null) {
+			%>
+			<div class="alert alert-success" role="alert">
+				<strong>Success! </strong><%=request.getAttribute("changepassword")%></div>
+			<%
+				} else {
+						cookies = request.getCookies();
+						if (cookies != null) {
+							for (int i = 0; i < cookies.length; i++) {
+								cookie = cookies[i];
+								if (cookie.getName().equals("email")) {
+									emailCookie = cookie.getValue();
+								} else if (cookie.getName().equals("password")) {
+									passwordCookie = cookie.getValue();
+								}
+							}
+						}
+					}
 			%>
 			<div class="form-group">
 				<label for="InputEmail1">Email address</label> <input type="email"

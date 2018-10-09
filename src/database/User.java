@@ -37,6 +37,34 @@ public class User extends Connector {
 		return status;
 	}
 
+	public boolean updatePassword(String email, String password) {
+		try {
+			String updateStatement = "update users set password=?, updated_date=? where email=?";
+			getConnection();
+
+			Timestamp date = new Timestamp(new java.util.Date().getTime());
+
+			PreparedStatement prepStmt = con.prepareStatement(updateStatement);
+			prepStmt.setString(1, password);
+			prepStmt.setTimestamp(2, date);
+			prepStmt.setString(3, email);
+
+			System.out.println("Updating email:" + email + " with password:" + password);
+
+			prepStmt.executeUpdate();
+
+			prepStmt.close();
+			releaseConnection();
+
+			return true;
+
+		} catch (SQLException ex) {
+			releaseConnection();
+			ex.printStackTrace();
+			return false;
+		}
+	}
+
 	public boolean updateUserDetails(UserDetails user) {
 		try {
 			String updateStatement = "update users set name=?, contact_no=?, updated_date=? where email=?";

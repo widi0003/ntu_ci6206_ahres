@@ -45,7 +45,7 @@
 		</div>
 
 		<input type="submit" class="btn btn-primary" value="Save changes">
-		<input type="submit" class="btn btn-primary" value="Cancel"
+		<input type="reset" class="btn btn-primary" value="Cancel"
 			name="cancel" value="yes">
 
 

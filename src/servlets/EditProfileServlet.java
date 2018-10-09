@@ -35,6 +35,7 @@ public class EditProfileServlet extends HttpServlet {
 		String username = request.getParameter("name");
 
 		try {
+
 			User user = new User();
 			UserDetails userDetails = user.getUserDetails(email);
 			userDetails.setContactNo(contact);
@@ -44,6 +45,7 @@ public class EditProfileServlet extends HttpServlet {
 				System.out.println("OK setting contact:" + contact + ", username:" + username + " for email:" + email);
 			}
 			response.sendRedirect("profile.jsp");
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
