@@ -259,7 +259,7 @@ insert into ahres.login_history (users_id,event_type,event_datetime) values (1,'
 insert into ahres.reservations (user_id, reserved_date, reserved_time, total_pax, remarks, created_date, updated_date,cancelled_date) values (6,date_add(curdate(),interval 8 day),curtime(),10,'wants big table',sysdate(),null,null);
 insert into ahres.reservations (user_id, reserved_date, reserved_time, total_pax, remarks, created_date, updated_date,cancelled_date) values (7,date_add(curdate(),interval 8 day),curtime(),5,null,sysdate(),sysdate(),null);
 insert into ahres.reservations (user_id, reserved_date, reserved_time, total_pax, remarks, created_date, updated_date,cancelled_date) values (8,date_add(curdate(),interval 8 day),curtime(),4,'no spicy',sysdate(),null,null);
-insert into ahres.reservations (user_id, reserved_date, reserved_time, total_pax, remarks, created_date, updated_date,cancelled_date) values (9,date_add(curdate(),interval 9 day),curtime(),8,null,sysdate(),null,sysdate());
+insert into ahres.reservations (user_id, reserved_date, reserved_time, total_pax, remarks, created_date, updated_date,cancelled_date) values (9,date_add(curdate(),interval 9 day),curtime(),10,null,sysdate(),null,sysdate());
 
 -- -----------------------------
 -- reservation_menu
@@ -280,6 +280,7 @@ insert into ahres.reservation_tables (reservation_id,table_id) values (1,16);
 insert into ahres.reservation_tables (reservation_id,table_id) values (2,8);
 insert into ahres.reservation_tables (reservation_id,table_id) values (3,4);
 insert into ahres.reservation_tables (reservation_id,table_id) values (4,13);
+insert into ahres.reservation_tables (reservation_id,table_id) values (4,2);
 
 -- -----------------------------
 -- user_feedback
@@ -304,7 +305,7 @@ AS SELECT r.id				as resrv_id
 		  , u.name           as name
 		  , u.password	     as passwords
 		  , u.contact_no     as contact_no
-		  , u.email_address  as email_address
+		  , u.email          as email
 		  , u.created_date   as user_created_date
 		  , u.updated_date   as user_updated_date
 		  , u.deleted_date   as user_deleted_date
@@ -330,7 +331,7 @@ AS SELECT r.id				as resrv_id
 		  , u.name           as name
 		  , u.password	     as passwords
 		  , u.contact_no     as contact_no
-		  , u.email_address  as email_address
+		  , u.email  as email
 		  , u.created_date   as user_created_date
 		  , u.updated_date   as user_updated_date
 		  , u.deleted_date   as user_deleted_date
