@@ -83,7 +83,7 @@ public class Feedback extends Connector {
 
 		try {
 			getConnection();
-			String selectStatement = "select * from user_feedback  where show_flag='y'";
+			String selectStatement = "select * from user_feedback  where show_flag='Y'";
 			PreparedStatement prepStmt = con.prepareStatement(selectStatement);
 			ResultSet rs = prepStmt.executeQuery();
 

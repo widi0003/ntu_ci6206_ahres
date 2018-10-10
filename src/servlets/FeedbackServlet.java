@@ -2,7 +2,6 @@ package servlets;
 
 import java.io.IOException;
 
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,7 +13,6 @@ import database.Feedback;
 import database.FeedbackDetails;
 import database.User;
 import database.UserDetails;
-
 
 @WebServlet("/FeedbackServlet")
 public class FeedbackServlet extends HttpServlet {
@@ -32,12 +30,11 @@ public class FeedbackServlet extends HttpServlet {
 		String email = (String) session.getAttribute("email");
 		String inputRate = request.getParameter("rate");
 		String comments = request.getParameter("comments");
-		
 
 		int userId = 0;
 		int id = 0;
 		int rate = Integer.parseInt(inputRate);
-		String showFlag = "Y";
+		String showFlag = "N";
 
 		try {
 			User user = new User();

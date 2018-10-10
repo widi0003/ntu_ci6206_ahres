@@ -39,6 +39,10 @@
 			}
 
 		});
+
+		$('#feedback-success').on('hidden.bs.modal', function(e) {
+			$(location).attr('href', 'index.jsp');
+		});
 	});
 
 	function validate() {
@@ -146,22 +150,23 @@
 			</div>
 		</div>
 	</form>
-	<div class="modal fade" id="feedback-success" tabindex="-1"
-		role="dialog" aria-labelledby="exampleModalCenterTitle"
-		aria-hidden="true">
+	<div class="modal fade" id="feedback-success" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalCenterTitle">Thank you for your feedback</h5>
+					<h5 class="modal-title" id="exampleModalCenterTitle">Thank you
+						for your feedback</h5>
 					<button type="button" class="close" data-dismiss="modal"
 						aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
-				<div class="modal-body">Thank you for taking the time to provide us with your feedback. We are looking forward to see you again in the near future!</div>
+				<div class="modal-body">Thank you for taking the time to provide
+					us with your feedback. We are looking forward to see you again in the
+					near future!</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary" onclick="location.href='index.jsp'" type="button">Home</button>
 				</div>
 			</div>
 		</div>
