@@ -52,10 +52,44 @@
 		}
 
 		if (isValid == true) {
-			$("#feedback").submit();
+			//$("#feedback").submit();
+			sendRequest();
 		} else {
 			$('#rate-warning').css('display', 'block');
 		}
+	}
+
+	function initRequest() {
+		if (window.XMLHttpRequest) {
+			return new XMLHttpRequest();
+		} else if (window.ActiveXObject) {
+			isIE = true;
+			return new ActiveXObject("Microsoft.XMLHTTP");
+		}
+	}
+	function sendRequest() {
+		var rate = 0;
+		var stars = $('li.star').children('input');
+		for (i = 0; i < stars.length; i++) {
+			if ($(stars[i]).prop("checked") == true) {
+				rate = $(stars[i]).val();
+				break;
+			}
+		}
+
+		var comments = $('#feedbackcomments').val();
+		var url = "FeedbackServlet?rate=" + rate + "&comments="
+				+ escape(comments);
+		var req = initRequest();
+		req.onreadystatechange = function() {
+			if (req.readyState == 4) {
+				if (req.status == 200) {
+					$('#feedback-success').modal('show');
+				}
+			}
+		};
+		req.open("GET", url, true);
+		req.send(null);
 	}
 </script>
 </head>
@@ -112,7 +146,26 @@
 			</div>
 		</div>
 	</form>
-
+	<div class="modal fade" id="feedback-success" tabindex="-1"
+		role="dialog" aria-labelledby="exampleModalCenterTitle"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalCenterTitle">Thank you for your feedback</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">Thank you for taking the time to provide us with your feedback. We are looking forward to see you again in the near future!</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary" onclick="location.href='index.jsp'" type="button">Home</button>
+				</div>
+			</div>
+		</div>
+	</div>
 	<%@include file='templates/footer.html'%>
 	<%
 		}
