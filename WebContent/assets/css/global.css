@@ -82,9 +82,13 @@ form#reservation {
 }
 
 .checkbox-rate {
-	display: none
+	display: none;
 }
 
 #feedbackcomments {
 	resize: none;
+}
+
+#rate-warning {
+	display: none;
 }

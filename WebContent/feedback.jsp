@@ -26,6 +26,7 @@
 		});
 
 		$('#stars li').on('click', function() {
+
 			var onStar = parseInt($(this).data('value'));
 			var stars = $(this).parent().children('li.star');
 
@@ -39,6 +40,23 @@
 
 		});
 	});
+
+	function validate() {
+		var isValid = false;
+		var stars = $('li.star').children('input');
+		for (i = 0; i < stars.length; i++) {
+			if ($(stars[i]).prop("checked") == true) {
+				isValid = true;
+				break;
+			}
+		}
+
+		if (isValid == true) {
+			$("#feedback").submit();
+		} else {
+			$('#rate-warning').css('display', 'block');
+		}
+	}
 </script>
 </head>
 <body>
@@ -55,40 +73,42 @@
 
 	<form action="FeedbackServlet" method="GET" class="m-auto pt-3"
 		id="feedback">
+		<div class="alert alert-warning" role="alert" id="rate-warning">
+			Please rate for us</div>
 		<div class='rating-stars text-center form-group'>
 			<ul id='stars' class='p-0'>
-				<li class='star' title='Poor' data-value='1'>
-					<input class="form-check-input checkbox-rate star" type="radio" name="rate" value="1" id="star-1" >
-					<label for="star-1"><i class='fa fa-star fa-fw' ></i></label>
-				</li>
-				<li class='star' title='Fair' data-value='2'>
-					<input class="form-check-input checkbox-rate star" type="radio"	name="rate" value="2" id="star-2">
-					<label for="star-2"><i class='fa fa-star fa-fw' ></i></label>
-				</li>
-				<li class='star' title='Good' data-value='3'>
-					<input	class="form-check-input checkbox-rate star" type="radio" name="rate" value="3" id="star-3">
-					<label for="star-3"><i class='fa fa-star fa-fw' ></i></label>
-				</li>
-				<li class='star' title='Excellent' data-value='4'>
-					<input class="form-check-input checkbox-rate star" type="radio"	name="rate" value="4" id="star-4">
-					<label for="star-4"><i class='fa fa-star fa-fw' ></i></label>
-				</li>
-				<li class='star' title='Perfect' data-value='5'>
-					<input class="form-check-input checkbox-rate star" type="radio"	name="rate" value="5" id="star-5">
-					<label for="star-5"><i class='fa fa-star fa-fw' ></i></label>
-				</li>
+				<li class='star' title='Poor' data-value='1'><input
+					class="form-check-input checkbox-rate star" type="radio" name="rate"
+					value="1" id="star-1"> <label for="star-1"><i
+						class='fa fa-star fa-fw'></i></label></li>
+				<li class='star' title='Fair' data-value='2'><input
+					class="form-check-input checkbox-rate star" type="radio" name="rate"
+					value="2" id="star-2"> <label for="star-2"><i
+						class='fa fa-star fa-fw'></i></label></li>
+				<li class='star' title='Good' data-value='3'><input
+					class="form-check-input checkbox-rate star" type="radio" name="rate"
+					value="3" id="star-3"> <label for="star-3"><i
+						class='fa fa-star fa-fw'></i></label></li>
+				<li class='star' title='Excellent' data-value='4'><input
+					class="form-check-input checkbox-rate star" type="radio" name="rate"
+					value="4" id="star-4"> <label for="star-4"><i
+						class='fa fa-star fa-fw'></i></label></li>
+				<li class='star' title='Perfect' data-value='5'><input
+					class="form-check-input checkbox-rate star" type="radio" name="rate"
+					value="5" id="star-5"> <label for="star-5"><i
+						class='fa fa-star fa-fw'></i></label></li>
 			</ul>
 		</div>
 
 		<div class="form-group">
 			<label for="feedbackComments">Please tell us your comments:</label>
-			<textarea class="form-control" id="feedbackcomments" name="comments" rows="3"></textarea>
+			<textarea class="form-control" id="feedbackcomments" name="comments"
+				rows="3"></textarea>
 		</div>
 		<div class="form-group ml-1">
 			<div class="text-center">
-				<button type="submit" class="btn btn-primary d-inline-block">
-					Submit
-				</button>
+				<input type="button" value="Submit" onclick="validate()"
+					class="btn btn-primary d-inline-block">
 			</div>
 		</div>
 	</form>
