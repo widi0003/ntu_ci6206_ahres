@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 
 <%@ page import="javax.servlet.http.HttpSession"%>
 <%@ page
@@ -7,14 +7,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<%@include file='templates/head.html'%>
+<%@include file='templates/head.html'%>
 </head>
 <body>
 	<%@include file='templates/navbar.jsp'%>
-	
+
 	<div align="center">
-    Your reservation is successful. <br>
-	Below is the detail of your reservation.
+		Your reservation is successful. <br> Below is the detail of your
+		reservation.
 	</div>
 	<h2>Reservations:</h2>
 	<table class="table table-striped">
@@ -29,7 +29,7 @@
 			</tr>
 		</thead>
 		<tbody>
-		<%
+			<%
 				Reservation reservation = new Reservation();
 					Iterator reservIter = reservation.getLastReservation(userId).iterator();
 
@@ -49,7 +49,7 @@
 				}
 			%>
 		</tbody>
-		</table>
+	</table>
 	<%@include file='templates/footer.html'%>
 </body>
 </html>
