@@ -15,7 +15,8 @@ public class UserDetails implements Comparable {
 	public UserDetails() {
 	}
 
-	public UserDetails(int id, String type, String name, String password, String contactNo, String email, Date createdDate) {
+	public UserDetails(int id, String type, String name, String password, String contactNo, String email,
+			Date createdDate) {
 		this.id = id;
 		this.type = type;
 		this.name = name;

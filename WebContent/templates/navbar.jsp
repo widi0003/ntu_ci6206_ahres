@@ -64,6 +64,7 @@
 							class="dropdown-item" href="editprofile.jsp">Edit Profile</a> <a
 							class="dropdown-item" href="changepassword.jsp">Change
 							Password</a> <a class="dropdown-item" href="reservations.jsp">Reservations</a>
+						<a class="dropdown-item" href="feedback.jsp">Feedback</a>
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="LogoutServlet">Logout</a>
 					</div>

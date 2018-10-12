@@ -44,12 +44,6 @@ form#reservation {
 	text-decoration: none;
 }
 
-#errorlogin {
-	color: red;
-	margin: 0 auto;
-	text-align: center;
-}
-
 .profile-item {
 	color: #0b5680;
 	font-weight: bold;
@@ -60,4 +54,39 @@ form#reservation {
 	color: black;
 	font-style: italic;
 	margin-left: 45%
+}
+
+.rating-stars ul {
+	list-style-type: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+}
+
+.rating-stars ul  li.star {
+	display: inline-block;
+}
+
+.rating-stars ul  li.star  i.fa {
+	font-size: 2.5em;
+	color: #ccc;
+}
+
+.rating-stars ul  li.star.hover  i.fa {
+	color: #FFCC36;
+}
+
+.rating-stars ul  li.star.selected  i.fa {
+	color: #FF912C;
+}
+
+.checkbox-rate {
+	display: none;
+}
+
+#feedbackcomments {
+	resize: none;
+}
+
+#rate-warning {
+	display: none;
 }
