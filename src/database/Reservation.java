@@ -16,20 +16,35 @@ public class Reservation extends Connector {
 	private ArrayList reservations;
 
 	// add new reservation
-	public void addNewReservation(ReservationDetails newReservation) {
-
+	public void addNewReservation(ReservationDetails newReservation, int tableID) {
+		int reservationID = 0;
 		try {
 			String sqlStatement = "INSERT INTO reservations (user_id, reserved_date, reserved_time, total_pax) VALUES (?, ?, ?, ?)";
 			getConnection();
 
-			PreparedStatement prepStmt = con.prepareStatement(sqlStatement);
+			PreparedStatement prepStmt = con.prepareStatement(sqlStatement,PreparedStatement.RETURN_GENERATED_KEYS);
 			prepStmt.setInt(1, newReservation.getUserId());
 			prepStmt.setDate(2, newReservation.getReservedDate());
 			prepStmt.setTime(3, newReservation.getReservedTime());
 			prepStmt.setInt(4, newReservation.getTotalPax());
 //			prepStmt.setString(5, newReservation.getRemarks());
 			prepStmt.executeUpdate();
-
+			ResultSet rs = prepStmt.getGeneratedKeys();
+			if(rs.next())
+			{
+				reservationID = rs.getInt(1);
+				
+			}
+			
+			
+			//Insert Reservation ID and Table ID mapping.
+			
+			sqlStatement = "INSERT INTO reservation_tables (reservation_id, table_id) VALUES (?, ?)";
+			prepStmt = con.prepareStatement(sqlStatement,PreparedStatement.RETURN_GENERATED_KEYS);
+			prepStmt.setInt(1, reservationID);
+			prepStmt.setInt(2, tableID);
+			prepStmt.executeUpdate();
+			
 			prepStmt.close();
 			releaseConnection();
 		} catch (SQLException ex) {
@@ -109,4 +124,33 @@ public class Reservation extends Connector {
 
 		return reservations;
 	}
+	
+	//Getting Available Table.
+		
+		public int getAvailableTable(Date reservedDate, Time reservedTime, int totalPax) throws ReservationsNotFoundException {
+			int tableID = 0;
+			try {
+				getConnection();
+				// Getting All Available Tables based on Size
+				String selectStatement = "select id from tables where no_of_pax between ? and ? and id not in (SELECT table_id FROM v_reservation_tbl_dtl WHERE reserved_date = ? and reserved_time = ?) ";
+				PreparedStatement prepStmt = con.prepareStatement(selectStatement);
+				prepStmt.setInt(1, totalPax);
+				prepStmt.setInt(2, totalPax+1);
+				prepStmt.setString(3, reservedDate.toString());
+				prepStmt.setString(4, reservedTime.toString());
+				ResultSet rs = prepStmt.executeQuery();
+			
+				if (rs.next())
+				{
+					tableID = rs.getInt(1);
+				}
+				prepStmt.close();
+			} catch (SQLException ex) {
+				throw new ReservationsNotFoundException(ex.getMessage());
+			}
+
+			releaseConnection();
+
+			return tableID;
+		}
 }

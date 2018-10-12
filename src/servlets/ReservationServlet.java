@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Date;
 import java.sql.Time;
 import database.User;
@@ -27,6 +28,7 @@ public class ReservationServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		
 		HttpSession session = request.getSession();
 
 		String email = (String) session.getAttribute("email");
@@ -51,13 +53,28 @@ public class ReservationServlet extends HttpServlet {
 		}
 
 		try {
+			
+			
+			//Make the Reservation.
+			int tableID = 0;
 			ReservationDetails newReservationDetails = new ReservationDetails(id, userId, reservedDate, reservedTime,
 					totalPax, remarks);
 			
 			Reservation reservation = new Reservation();
-			reservation.addNewReservation(newReservationDetails);
+			tableID  = reservation.getAvailableTable(reservedDate, reservedTime, totalPax);
+			if (tableID != 0)
+			{
+				reservation.addNewReservation(newReservationDetails,tableID);
+				response.sendRedirect("reserve-successful.jsp");
+			}
+			else
+			{
+				request.setAttribute("errorMessage", "We are sorry. There is no available table. Please adjust your search.");
+				request.getRequestDispatcher("reservation.jsp").include(request, response);
+			}
+			
 
-			response.sendRedirect("reserve-successful.jsp");
+			
 			
 		} catch (Exception e) {
 			e.printStackTrace();

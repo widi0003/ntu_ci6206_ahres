@@ -26,6 +26,15 @@
 		<h2 class="mt-5 formtitle">Make a reservation with us</h2>
 		<form action="ReservationServlet" method="GET" class="m-auto pt-3"
 			id="reservation">
+			<%
+				if (request.getAttribute("errorMessage") != null) {
+			%>
+			<div class="alert alert-warning" role="alert">
+				<strong>Warning! </strong><%=request.getAttribute("errorMessage")%>
+			</div>
+			<%
+				}
+			%>
 			<div class="form-row">
 				<div class="form-group col">
 					<div class="input-group mb-2">
